@@ -5,21 +5,11 @@
 - ROS melodic 1.14.11
 - Unitree_Ros
 
-----
 
 开发环境安装过程：        
 Development-environment.md
 
-unitree ROS 使用笔记：  
-Notes.md
-
-----
-项目进度：
-- [ ]  1
-- [ ]  2
-- [ ]  3
-
-----
+unitree ROS 使用笔记：
 
 SLAM相关：  
 https://github.com/TixiaoShan/LIO-SAM
