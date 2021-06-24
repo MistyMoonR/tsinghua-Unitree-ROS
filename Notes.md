@@ -76,7 +76,7 @@ roslaunch a1_description a1_rviz.launch
 
 ----
 
-## ** LCM - UDP 数据通信** 
+## **LCM - UDP 数据通信** 
 
 机器狗用于 LCM Server 传输消息, LCM Channel实现
 
@@ -95,12 +95,12 @@ LIO-SAM
 
 ----
 
-SLAM相关：  
-https://github.com/TixiaoShan/LIO-SAM
+SLAM相关：      
+https://github.com/TixiaoShan/LIO-SAM   
 https://github.com/borglab/gtsam/releases
 
-宇树科技相关：  
+宇树科技相关：      
 https://github.com/unitreerobotics/unitree_ros
 
-C++ 键位
+C++ 键位：       
 https://blog.csdn.net/zjsxxzh/article/details/50662833
