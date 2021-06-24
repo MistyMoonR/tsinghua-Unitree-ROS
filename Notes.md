@@ -4,7 +4,7 @@
 - Ubuntu18.04 LTS
 - ROS melodic 1.14.11
 - Unitree_Ros
-----
+
 目录： 
 * unitree_legged_sdk 篇
 * unitree_ros 篇
@@ -16,7 +16,14 @@
 问题：
 - [x]  API里没找到机器狗IMU传感器返回信息，SLO-SAM需要。 已经解决：在unitree_legged_sdk的通讯库里
 
+
+轴解释：    
+X：机器前   
+Y：机器左   
+Z：机器上   
+
 ----
+
 # unitree_legged_sdk 篇
 ## 控制 ： `unitree_legged_sdk`
 
@@ -95,5 +102,5 @@ https://github.com/borglab/gtsam/releases
 宇树科技相关：  
 https://github.com/unitreerobotics/unitree_ros
 
-C++ 键盘记录
+C++ 键位
 https://blog.csdn.net/zjsxxzh/article/details/50662833
