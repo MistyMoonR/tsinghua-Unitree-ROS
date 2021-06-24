@@ -6,10 +6,22 @@
 - Unitree_Ros
 
 
-开发环境安装过程：        
-Development-environment.md
 
-unitree ROS 使用笔记：
+## 控制 ： `unitree_legged_sdk`
+
+通讯库 `libunitree_legged_sdk.so`   
+头文件 `unitree_legged_sdk.h`
+
+* API
+    * 高层控制模式
+    * 底层控制模式
+        * 普通模式 port: 8007
+        * 运动模式 port: 8081
+
+
+## 查看状态 ： `unitree_ros`
+
+
 
 SLAM相关：  
 https://github.com/TixiaoShan/LIO-SAM
