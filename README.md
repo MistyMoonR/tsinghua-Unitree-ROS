@@ -11,11 +11,13 @@
 
 [unitree ROS 使用笔记](/Notes.md)     
 
+[键盘位置](/keyboard.md)     
+
 ----
 项目进度：
-- [ ]  1
-- [ ]  2
-- [ ]  3
+- [ ]  Unitree_ROS 的 Gazebo 动力学仿真
+- [ ]  unitree_legged_sdk
+- [ ]  ？
 
 ----
 

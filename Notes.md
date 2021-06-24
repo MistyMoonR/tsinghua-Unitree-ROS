@@ -28,22 +28,25 @@
 问题：
 - [x]  API里没找到机器狗IMU传感器返回信息，SLO-SAM需要。 已经解决：在unitree_legged_sdk的通讯库里
 
-Rviz 可视化 
+**Rviz 可视化** 
 
 ```
 # 运行launch 需要连接机器人才行
 roslaunch a1_description a1_rviz.launch
 ```    
 
-Gazebo 动力学仿真       
+**Gazebo 动力学仿真**    
+
+BUG一堆，还没文档解释变量干啥用...
 
 ``` 
 roslaunch unitree_gazebo normal.launch rname:=a1 wname:=stairs  #wname是场景，不过貌似有点问题，去掉能运行，
+
+##下面新开两个终端分别运行
+rosrun unitree_controller unitree_servo
 rosrun unitree_controller unitree_move_kinetic  #camkelist里面没改，也不影响
 
 ``` 
-
-
 
 unitree_controller文件夹里面的CmakeLists.txt
 ``` 
