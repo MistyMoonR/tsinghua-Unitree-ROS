@@ -67,7 +67,7 @@ sudo apt-get install -y python-rosinstall python-rosinstall-generator python-wst
 sudo apt-get install -y ros-melodic-ros-tutorials
 ```
 
-### LIO-SAM 运行依赖
+### LIO-SAM 运行依赖 SLAM相关
 
 摘录自： https://github.com/TixiaoShan/LIO-SAM
 
@@ -103,6 +103,7 @@ catkin_make
 `unitree_ros` 安装前先安装 `Gazebo`(好像ROS自带)，`untree_legged_sdk`
 
 ROS `unitree_legged_sdk` 前先编译LCM
+LCM-UDP： 数据通信相关
 
 ```
 git clone https://github.com/lcm-proj/lcm.git
@@ -114,7 +115,8 @@ make
 sudo make install
 ```
 
-unitree_legged_sdk 编译
+` unitree_legged_sdk`  编译
+
 ```
 git clone https://github.com/unitreerobotics/unitree_legged_sdk.git
 cd unitree_legged_sdk
@@ -133,7 +135,8 @@ echo "export ALIENGO_SDK_PATH=~/aliengo_sdk" >> ~/.bashrc
 echo "export UNITREE_PLATFORM=amd64" >> ~/.bashrc
 ```
 
-unitree ROS ： `unitree_ros` 
+unitree ROS ： `unitree_ros`  编译 (可选)
+
 ```
 mkdir -p catkin_ws/src
 cd catkin_ws/src
