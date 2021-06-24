@@ -17,7 +17,7 @@
 项目进度：
 - [ ]  Unitree_ROS 的 Gazebo 动力学仿真
 - [ ]  unitree_legged_sdk
-- [ ]  ？
+- [ ]  LIO-SAM开源的SLAM建模
 
 ----
 
