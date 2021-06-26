@@ -45,3 +45,7 @@ https://github.com/borglab/gtsam/releases
 
 C++ 键位函数：      
 https://www.iteye.com/blog/bingtears-663149
+
+Google research:
+https://xbpeng.github.io/projects/Robotic_Imitation/index.html
+https://ai.googleblog.com/2020/04/exploring-nature-inspired-robot-agility.html
