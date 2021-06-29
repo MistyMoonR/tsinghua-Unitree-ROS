@@ -113,6 +113,14 @@ LIO-SAM
 
 
 ----
+实物机器狗
+
+参数设置：
+patroldog_ws/src/navigation/param/teb_local_planner_params.yaml
+
+
+
+----
 
 SLAM相关：      
 https://github.com/TixiaoShan/LIO-SAM   
