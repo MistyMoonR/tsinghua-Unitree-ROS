@@ -37,6 +37,8 @@ ROS + SLAM
 ----
 ## 引用：
 
+https://github.com/lnotspotl/a1_sim_py      
+
 宇树科技 A1 产品介绍：  
 https://www.unitree.com/cn/products/a1
 
