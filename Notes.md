@@ -65,6 +65,9 @@ Tips:
 
 BUG一堆，还没文档解释变量干啥用...
 
+Gazebo没高层运动控制，坑。。。
+
+
 /unitree_ros/unitree_gaebo/launch/normal.launch 头部可以更改default="a1"
 
 运行部分： 
