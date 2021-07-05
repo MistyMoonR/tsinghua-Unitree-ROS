@@ -25,14 +25,14 @@ ROS + SLAM
 ---
 ## 项目进度：
 - [x]  测试环境搭建 + 编译驱动和依懒包
-- [ ]  Unitree_ROS 的 Gazebo 动力学仿真
-- [ ]  unitree_legged_sdk API库研究
+- [ ]  Unitree_ROS 的 Gazebo 动力学仿真(凉了)
+- [ ]  unitree_legged_sdk API库研究(不用看，基于ROS上运行)
 - [ ]  LIO-SAM开源的SLAM建模
 
 
 ----
 ## 架构图
-![IMG](pictures/A1-architecture.png)
+![IMG](pictures/Unitree-A1.png)
 
 ----
 ## 引用：
