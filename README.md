@@ -49,6 +49,8 @@ https://github.com/unitreerobotics/unitree_legged_sdk
 SLAM相关：  
 https://github.com/TixiaoShan/LIO-SAM       
 https://github.com/borglab/gtsam/releases       
+intel D435i:        
+https://github.com/IntelRealSense/librealsense/releases/tag/v2.45.0
 
 C++ 键位函数：      
 https://www.iteye.com/blog/bingtears-663149
