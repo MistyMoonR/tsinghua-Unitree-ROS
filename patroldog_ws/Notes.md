@@ -11,7 +11,9 @@
 * unitree_legged_real
 
 问题：
-- [x]  
+- [x]   GTSAM 依懒安装 详见 LIO-SAM 的文档，否则直接跑不了(lboost::xxx)     
+
+
 
 ----
 
@@ -19,19 +21,19 @@
 ## 建图任务 ： `build_map.launch`       
 
 启动激光雷达:   
-```
+``` yaml
 $(find velodyne_pointcloud)/launch/VLP16_points.launch
 ```    
 3D SLAM 建图算法 lio-sam: 
-```  
+```yaml  
 $(find lio_sam)/launch/run.launch
 ```     
 base_link到base_footprint的坐标变换:   
-``` 
+``` yaml
 <node pkg="tf" type="static_transform_publisher" name="base_footprint_broadcaster" args="0 0 0 0 0 0 /base_link /base_footprint 100"/>
 ```
 2D SLAM算法 gmapping (二维建图，RVIZ可视化): 
-```
+```yaml
 <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping_node" output="screen">
         <param name="map_frame" value="map"/>
         <param name="base_frame" value="base_link"/>
