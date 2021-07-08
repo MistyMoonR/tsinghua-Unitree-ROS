@@ -22,12 +22,15 @@ ROS + SLAM
 
 [键位函数](/keyboard.md)     
 
+
 ---
 ## 项目进度：
-- [x]  测试环境搭建 + 编译驱动和依懒包
-- [ ]  Unitree_ROS 的 Gazebo 动力学仿真(凉了)
-- [ ]  unitree_legged_sdk API库研究(不用看，基于ROS上运行)
+- [x]  测试环境搭建 + 编译驱动和依懒包(unitree_ros)
+- [x]  Unitree_ROS 的 Gazebo 动力学仿真(中止)
+- [x]  unitree_legged_sdk API库研究(不用看，基于ROS上运行)
 - [ ]  LIO-SAM开源的SLAM建模
+- [ ]  研究patroldog_ws 相关代码(能运行基本功能，需二次开发)
+- [ ]  构建自己的ROS_ws项目，完善文档
 
 
 ----
@@ -36,9 +39,7 @@ ROS + SLAM
 
 ----
 ## 引用：
-
-https://github.com/lnotspotl/a1_sim_py      
-
+     
 宇树科技 A1 产品介绍：  
 https://www.unitree.com/cn/products/a1
 
@@ -48,12 +49,21 @@ https://github.com/unitreerobotics/unitree_legged_sdk
 
 SLAM相关：  
 https://github.com/TixiaoShan/LIO-SAM       
-https://github.com/borglab/gtsam/releases       
-intel D435i:        
-https://github.com/IntelRealSense/librealsense/releases/tag/v2.45.0
+https://github.com/borglab/gtsam/releases   
+
+intel D435i 双目摄像头相关(由于玄学问题，需要降级到v2.45.0版本):        
+https://github.com/IntelRealSense/librealsense/releases/tag/v2.45.0     
+https://github.com/IntelRealSense/realsense-ros
+
+Velodyne 16线激光雷达: 
+https://github.com/ros-drivers/velodyne.git    
+http://wiki.ros.org/velodyne/Tutorials/Getting%20Started%20with%20the%20Velodyne%20VLP16         
 
 C++ 键位函数：      
 https://www.iteye.com/blog/bingtears-663149
+
+第三方运动控制：        
+https://github.com/lnotspotl/a1_sim_py 
 
 Google research:        
 https://xbpeng.github.io/projects/Robotic_Imitation/index.html      
