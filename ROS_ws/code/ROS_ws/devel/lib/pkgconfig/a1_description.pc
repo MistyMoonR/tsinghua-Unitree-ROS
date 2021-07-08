@@ -1,0 +1,8 @@
+prefix=/home/ros/ROS_ws/devel
+
+Name: a1_description
+Description: Description of a1_description
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,8 @@
+prefix=/home/ros/ROS_ws/install
+
+Name: velodyne_pointcloud
+Description: Description of velodyne_pointcloud
+Version: 1.6.1
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -lvelodyne_rawdata -ldata_containers
+Requires: angles nodelet roscpp roslib sensor_msgs tf2_ros velodyne_driver velodyne_msgs dynamic_reconfigure diagnostic_updater

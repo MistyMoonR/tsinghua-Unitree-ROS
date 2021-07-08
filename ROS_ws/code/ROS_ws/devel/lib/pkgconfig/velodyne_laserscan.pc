@@ -1,0 +1,8 @@
+prefix=/home/ros/ROS_ws/devel
+
+Name: velodyne_laserscan
+Description: Description of velodyne_laserscan
+Version: 1.6.1
+Cflags: -I/home/ros/ROS_ws/devel/include
+Libs: -L${prefix}/lib 
+Requires: sensor_msgs

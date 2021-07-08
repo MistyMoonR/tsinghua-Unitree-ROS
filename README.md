@@ -55,7 +55,7 @@ intel D435i 双目摄像头相关(由于玄学问题，需要降级到v2.45.0版
 https://github.com/IntelRealSense/librealsense/releases/tag/v2.45.0     
 https://github.com/IntelRealSense/realsense-ros
 
-Velodyne 16线激光雷达: 
+Velodyne 16线激光雷达:      
 https://github.com/ros-drivers/velodyne.git    
 http://wiki.ros.org/velodyne/Tutorials/Getting%20Started%20with%20the%20Velodyne%20VLP16         
 

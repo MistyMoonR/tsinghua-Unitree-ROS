@@ -1,0 +1,8 @@
+prefix=/home/ros/ROS_ws/devel
+
+Name: velodyne_driver
+Description: Description of velodyne_driver
+Version: 1.6.1
+Cflags: -I/home/ros/ROS_ws/devel/include -I/home/ros/ROS_ws/src/unitree_ros/velodyne/velodyne_driver/include
+Libs: -L${prefix}/lib -lvelodyne_input
+Requires: diagnostic_updater dynamic_reconfigure nodelet roscpp tf velodyne_msgs
