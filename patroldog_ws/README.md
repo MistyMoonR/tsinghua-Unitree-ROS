@@ -13,9 +13,11 @@
 问题：
 - [x]   GTSAM 依懒安装 详见 LIO-SAM 的文档，否则直接跑不了(lboost::xxx)     
 
-
-
 ----
+
+**`rostopic list`**
+
+![IMG](rostopic.png)
 
 # start 篇
 ## 建图任务 ： `build_map.launch`       
@@ -42,21 +44,21 @@ base_link到base_footprint的坐标变换:
 </node>  
 ```  
 map  到 local_map的坐标变换:
-```
+``` yaml
  <!-- <node pkg="start" type="local_map_tf_publisher" name="local_map_tf_publisher_node" output="screen"/> -->   
 ```
 启动路径规划和避障的算法:
-```
+``` yaml
  <include file="$(find navigation)/launch/move_base.launch">
     <arg name="odom_topic" value="/lio_sam/mapping/odom"/>
 </include>
 ```    
 启动与机器狗的通讯:     
-```
+``` yaml
 <include file="$(find unitree_legged_real)/launch/real.launch"/> 
 ```    
 与机器狗沟通的 ROS 界面:     
-```
+``` yaml
     <node pkg="unitree_legged_real" type="ros_control" name="dog_control_node" output="screen">
         <param name="is_build_map" value="true"/>
         <param name="patrol_points_file" value="$(find start)/maps/gmapping/$(arg map_name)_patrol_points.txt"/>
@@ -65,7 +67,7 @@ map  到 local_map的坐标变换:
 ## 巡逻任务 ： `start_patrol.launch`               
    
 启动导航路径规划，避障的算法(和上面有略不同): 
-```    
+```    yaml 
 <include file="$(find navigation)/launch/navigation.launch">
     <arg name="map_file" value="$(find start)/maps/gmapping/$(arg map_name).yaml"/>
     <arg name="odom_topic" value="/localization/odom"/>
@@ -73,7 +75,7 @@ map  到 local_map的坐标变换:
 ```    
 
 启动巡逻点的发布程序: 
-```   
+```   yaml
 <node pkg="start" type="patrol" name="send_patrol_points" output="screen">
     <param name="patrol_points_file" value="$(find start)/maps/gmapping/$(arg map_name)_patrol_points.txt"/>
 </node>
@@ -115,7 +117,7 @@ unitree_controller文件夹里面的CmakeLists.txt
 
 ## **Rviz 可视化** 
 
-```
+``` 
 # 运行launch 需要连接机器人才行
 roslaunch a1_description a1_rviz.launch
 ```    

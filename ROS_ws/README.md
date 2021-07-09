@@ -1,21 +1,29 @@
 # ROS_ws 构建过程
 
+**[Releases版本](code/Releases.md)**
+
 系统环境： 
 - Ubuntu18.04 LTS
 - ROS melodic 1.14.11
 - Unitree_Ros change to ROS_ws
+
+硬件：
+- NUC8 i7-8650U
+----
 
 目录： 
 * 
 * 
 * unitree_legged_real
 
+
 问题：
-- [x]        
+- [ ]  xxx      
 
 
-
+## 系统框架图
 ![IMG](pictures/ROS_ws.png)
+
 
 
 ----

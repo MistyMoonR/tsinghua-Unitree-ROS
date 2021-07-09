@@ -6,21 +6,34 @@ ROS + SLAM
 
 硬件：  
 * Upboard : Z8350处理器 4G内存 64G 硬盘   
-* 上位机 : Jetson Xaiver NX / X86
-* 激光雷达 : 单线 & 十六线
+* 上位机 : Jetson Xaiver NX / NUC8 i7-8650U
+* 激光雷达 : Velodyne-16
 
 系统环境： 
 - Ubuntu18.04 LTS
 - ROS melodic 1.14.11
 
 ----
-## 文档链接 (重要)
+## 文档说明
+
+**分两条线路进行**
+
+- [南科大patroldog_ws的研究](/patroldog_ws)
+
+- [构建自己的ROS工作空间](/ROS_ws)
+
+
+## 文档链接
 
 [开发环境 安装 步骤](/Development-environment.md)     
 
 [unitree ros 开发笔记](/Notes.md)     
 
-[键位函数](/keyboard.md)     
+[unitree API接口协议](/data/API.md)     
+
+[键位函数](/data/keyboard.md)     
+
+[Velodyne-16线激光雷达](/data/A1-velodyne16.md)     
 
 
 ---
