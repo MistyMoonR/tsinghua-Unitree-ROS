@@ -1,8 +1,0 @@
-prefix=/home/ros/ROS_ws/install
-
-Name: realsense2_description
-Description: Description of realsense2_description
-Version: 2.3.1
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

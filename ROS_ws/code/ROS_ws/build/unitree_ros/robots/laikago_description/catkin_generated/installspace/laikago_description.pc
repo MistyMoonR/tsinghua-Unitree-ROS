@@ -1,8 +1,0 @@
-prefix=/home/ros/ROS_ws/install
-
-Name: laikago_description
-Description: Description of laikago_description
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

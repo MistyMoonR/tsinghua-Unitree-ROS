@@ -1,8 +1,0 @@
-prefix=/home/ros/ROS_ws/install
-
-Name: unitree_controller
-Description: Description of unitree_controller
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: unitree_legged_msgs
