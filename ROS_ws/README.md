@@ -3,7 +3,7 @@
 系统环境： 
 - Ubuntu18.04 LTS
 - ROS melodic 1.14.11
-- Unitree_Ros 改的 patroldog_ws
+- Unitree_Ros change to ROS_ws
 
 目录： 
 * 
