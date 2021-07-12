@@ -7,36 +7,32 @@
 
 ----
 待解决问题： 
-- [ ]  LIO-SAM和unitree_ros的catkin_ws文件名冲突问题
-- [ ]  修改链接部分到我Github上
-- [ ]  需要完善整体框架
+- [x]  LIO-SAM和unitree_ros的catkin_ws文件名冲突问题
+- [x]  修改链接部分到我Github上
+- [x]  需要完善整体框架
 ----
 
-安装过程前手动更新，看情况是否换源
-```
-sudo nano /etc/apt/source.list
-```
-
-注释里面的所有内容，将下列内容复制到文件里
+切换清华源(建议)        
+来源： https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/
 
 ```
-deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted universe multiverse
-deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universe multiverse
-deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted universe multiverse
-deb http://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted universe multiverse
-deb http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse
+sudo gedit /etc/apt/source.list
+```
+把以下内容都复制粘贴进去
 
-deb-src http://mirrors.aliyun.com/ubuntu/ xenial main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ xenial-proposed main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse
+``` yml
+# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse
 ```
 
 更新软件源
-
-
-
 ```
 sudo apt-get update
 sudo apt -y update
@@ -75,26 +71,43 @@ chmod u+x Install-xrdp-3.0.sh
 
 ### ROS melodic install
 
+来源： http://wiki.ros.org/melodic/Installation/Ubuntu      
+
 ```
-sudo sh -c ‘echo “deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main” > /etc/apt/sources.list.d/ros-latest.list’
-sudo apt-key adv —keyserver ‘hkp://keyserver.ubuntu.com:80’ —recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+
+sudo apt install curl # if you haven't already installed curl
+
+curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+
+sudo apt update
+
 sudo apt install -y ros-melodic-desktop-full
-sudo apt install -y rospack-tools
-sudo rosdep init
-rosdep update
-echo “source /opt/ros/melodic/setup.bash” >> ~/.bashrc
+
+echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
+
 source ~/.bashrc
+
+sudo apt install python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
+
+sudo apt install python-rosdep
+
+sudo rosdep init
+
+rosdep update
+
 ```
 
-完成安装 下面依懒 + tutorials 方便测试是否装成功
+完成安装 下面依懒 + tutorials 方便测试是否装成功(可选)
 ```
 sudo apt-get install -y python-rosinstall python-rosinstall-generator python-wstool build-essential
+
 sudo apt-get install -y ros-melodic-ros-tutorials
 ```
 
 ### LIO-SAM 运行依赖 SLAM相关
 
-摘录自： https://github.com/TixiaoShan/LIO-SAM
+来源： https://github.com/TixiaoShan/LIO-SAM
 
 ROS Dependency 
 ```
@@ -103,20 +116,26 @@ sudo apt-get install -y ros-melodic-robot-localization
 sudo apt-get install -y ros-melodic-robot-state-publisher
 ```
 
-[GTSAM](https://github.com/borglab/gtsam/releases): Georgia Tech Smoothing and Mapping library
+GTSAM: Georgia Tech Smoothing and Mapping library   
+来源：https://github.com/borglab/gtsam/releases
 
 ```
 wget -O ~/Downloads/gtsam.zip https://github.com/borglab/gtsam/archive/4.0.2.zip
+
 cd ~/Downloads/ && unzip gtsam.zip -d ~/Downloads/
+
 cd ~/Downloads/gtsam-4.0.2/
+
 mkdir build && cd build
+
 cmake -DGTSAM_BUILD_WITH_MARCH_NATIVE=OFF -DGTSAM_USE_SYSTEM_EIGEN=ON ..
+
 sudo make install -j8  #不成功就 -j1
 ```
 
 **LIO-SAM 需要特别注意是catkin_ws和 unitree_ros的catkin_ws 可能会重叠，后续待解决**
 ```
-cd ~/catkin_ws/src
+cd ~/catkin_ws/src  
 git clone https://github.com/TixiaoShan/LIO-SAM.git
 cd ..
 catkin_make
@@ -125,7 +144,7 @@ catkin_make
 
 ### unitree_ros dependencies
 
-`unitree_ros` 安装前先安装 `Gazebo`(好像ROS自带)，`untree_legged_sdk`
+`unitree_ros` 安装前先安装 `Gazebo`(ROS自带)，`untree_legged_sdk`
 
 ROS `unitree_legged_sdk` 前先编译LCM
 LCM-UDP： 数据通信相关
@@ -139,9 +158,7 @@ cmake ..
 make
 sudo make install
 ```
-
 ` unitree_legged_sdk`  编译
-
 ```
 git clone https://github.com/unitreerobotics/unitree_legged_sdk.git
 cd unitree_legged_sdk
@@ -152,15 +169,29 @@ make
 sudo make install
 ```
 
-配置环境变量
-```
-echo "export UNITREE_LEGGED_SDK_PATH=~/unitree_legged_sdk" >> ~/.bashrc
-echo "export ALIENGO_SDK_PATH=~/aliengo_sdk" >> ~/.bashrc
-#amd64, arm32, arm64
-echo "export UNITREE_PLATFORM=amd64" >> ~/.bashrc
+配置环境变量:  ~/.bashrc
+``` yml
+source /opt/ros/melodic/setup.bash
+# melodic 默认装gazebo-9
+source /usr/share/gazebo-9/setup.sh 
+# 有需要把catkin_ws替换你的工作空间
+source ~/catkin_ws/devel/setup.bash
+export ROS_PACKAGE_PATH=~/catkin_ws:${ROS_PACKAGE_PATH}
+export GAZEBO_PLUGIN_PATH=~/catkin_ws/devel/lib:${GAZEBO_PLUGIN_PATH}
+export LD_LIBRARY_PATH=~/catkin_ws/devel/lib:${LD_LIBRARY_PATH}
+
+export UNITREE_SDK_VERSION=3_2
+export UNITREE_LEGGED_SDK_PATH=~/unitree_legged_sdk
+# amd64, arm32, arm64 根据你平台设备选择
+export UNITREE_PLATFORM="amd64"
+
 ```
 
-unitree ROS ： `unitree_ros`  编译 (可选)
+----
+unitree ROS ： `unitree_ros`  编译 (可选)       
+
+文档链接: 
+[ROS_ws](\ROS_ws\README.md)
 
 ```
 mkdir -p catkin_ws/src
@@ -169,7 +200,6 @@ catkin_init_workspace
 git clone https://github.com/unitreerobotics/a1_ros.git
 catkin_make
 ```
-
 ----
 
 

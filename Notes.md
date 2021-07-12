@@ -91,7 +91,7 @@ unitree_controller文件夹里面的CmakeLists.txt
 
 ## **Rviz 可视化** 
 
-```
+``` shell
 # 运行launch 需要连接机器人才行
 roslaunch a1_description a1_rviz.launch
 ```    

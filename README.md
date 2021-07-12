@@ -47,9 +47,10 @@ ROS + SLAM
 
 
 ----
-## 架构图
-![IMG](pictures/Unitree-A1.png)
-
+## 硬件架构图
+![IMG](pictures/HW.png)
+## 软件架构图
+![IMG](pictures/SW.png)
 ----
 ## 引用：
      

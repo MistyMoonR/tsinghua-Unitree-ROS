@@ -13,6 +13,21 @@
 问题：
 - [x]   GTSAM 依懒安装 详见 LIO-SAM 的文档，否则直接跑不了(lboost::xxx)     
 
+
+结构： 
+* gmapping  SLAM扫描地图底层算法
+* lio_sam  开源SLAM算法
+* navigation launch包，包含 机器狗控制指令和 2D地图通航指令
+* ndt_localization  貌似是关于voxel点云算法（激光雷达用
+    * ndt_omp
+    * prm_localization
+* start  初始化路径 **
+* unitree_legged_msgs  宇树科技 信息包
+* unitree_legged_real  ROS里面控制物理狗 
+* velodyne  16线激光雷达驱动包 
+
+
+
 ----
 
 **`rostopic list`**
@@ -23,19 +38,19 @@
 ## 建图任务 ： `build_map.launch`       
 
 启动激光雷达:   
-``` yaml
+```
 $(find velodyne_pointcloud)/launch/VLP16_points.launch
 ```    
 3D SLAM 建图算法 lio-sam: 
-```yaml  
+```  
 $(find lio_sam)/launch/run.launch
 ```     
 base_link到base_footprint的坐标变换:   
-``` yaml
+``` xml
 <node pkg="tf" type="static_transform_publisher" name="base_footprint_broadcaster" args="0 0 0 0 0 0 /base_link /base_footprint 100"/>
 ```
 2D SLAM算法 gmapping (二维建图，RVIZ可视化): 
-```yaml
+```xml
 <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping_node" output="screen">
         <param name="map_frame" value="map"/>
         <param name="base_frame" value="base_link"/>
@@ -44,21 +59,21 @@ base_link到base_footprint的坐标变换:
 </node>  
 ```  
 map  到 local_map的坐标变换:
-``` yaml
+``` xml
  <!-- <node pkg="start" type="local_map_tf_publisher" name="local_map_tf_publisher_node" output="screen"/> -->   
 ```
 启动路径规划和避障的算法:
-``` yaml
+``` xml
  <include file="$(find navigation)/launch/move_base.launch">
     <arg name="odom_topic" value="/lio_sam/mapping/odom"/>
 </include>
 ```    
 启动与机器狗的通讯:     
-``` yaml
+``` xml
 <include file="$(find unitree_legged_real)/launch/real.launch"/> 
 ```    
 与机器狗沟通的 ROS 界面:     
-``` yaml
+``` xml
     <node pkg="unitree_legged_real" type="ros_control" name="dog_control_node" output="screen">
         <param name="is_build_map" value="true"/>
         <param name="patrol_points_file" value="$(find start)/maps/gmapping/$(arg map_name)_patrol_points.txt"/>
@@ -66,16 +81,16 @@ map  到 local_map的坐标变换:
 ```    
 ## 巡逻任务 ： `start_patrol.launch`               
    
-启动导航路径规划，避障的算法(和上面有略不同): 
-```    yaml 
+-  启动导航路径规划，避障的算法(和上面有略不同): 
+```    xml 
 <include file="$(find navigation)/launch/navigation.launch">
     <arg name="map_file" value="$(find start)/maps/gmapping/$(arg map_name).yaml"/>
     <arg name="odom_topic" value="/localization/odom"/>
 </include>
 ```    
 
-启动巡逻点的发布程序: 
-```   yaml
+- 启动巡逻点的发布程序: 
+```   xml
 <node pkg="start" type="patrol" name="send_patrol_points" output="screen">
     <param name="patrol_points_file" value="$(find start)/maps/gmapping/$(arg map_name)_patrol_points.txt"/>
 </node>
@@ -138,7 +153,7 @@ UDP Multicast Setup : https://lcm-proj.github.io/multicast_setup.html
 
 # LIO-SAM SLAM建模
 LIO-SAM
-需要一个IMU传感器，高精度。
+需要一个IMU传感器，最好是9轴IMU
 
 
 ----

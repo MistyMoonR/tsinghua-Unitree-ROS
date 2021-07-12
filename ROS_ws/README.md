@@ -12,19 +12,16 @@
 ----
 
 目录： 
-* 
-* 
-* unitree_legged_real
+* unitree_ros
+* realsense_ros
+* velodyne
 
 
 问题：
 - [ ]  xxx      
 
-
 ## 系统框架图
 ![IMG](pictures/ROS_ws.png)
-
-
 
 ----
 
@@ -43,8 +40,9 @@ https://github.com/ros-drivers/velodyne.git
 
 ----
 
-## 
+## 首先需要安装环境 (重要)
 
+[开发环境 安装 步骤](/Development-environment.md)     
 
 ----
 
