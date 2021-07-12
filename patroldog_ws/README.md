@@ -27,7 +27,6 @@
 * velodyne  16线激光雷达驱动包 
 
 
-
 ----
 
 **`rostopic list`**
@@ -104,10 +103,7 @@ Tips:
 
 ## **Gazebo 动力学仿真**  
 
-BUG一堆，还没文档解释变量干啥用...
-
-Gazebo没高层运动控制，坑。。。
-
+Gazebo没高层运动控制
 
 /unitree_ros/unitree_gaebo/launch/normal.launch 头部可以更改default="a1"
 
@@ -124,16 +120,13 @@ Gazebo本质上是调用a1_description的urdf文件
 
 [教程：在 Gazebo 中使用 URDF](http://gazebosim.org/tutorials/?tut=ros_urdf)
 
-
 unitree_controller文件夹里面的CmakeLists.txt
-
-
 ----
 
 ## **Rviz 可视化** 
 
 ``` 
-# 运行launch 需要连接机器人才行
+# 运行launch 需要连接机器人才行 没测试过
 roslaunch a1_description a1_rviz.launch
 ```    
 
@@ -161,8 +154,6 @@ LIO-SAM
 
 参数设置：
 patroldog_ws/src/navigation/param/teb_local_planner_params.yaml
-
-
 
 ----
 

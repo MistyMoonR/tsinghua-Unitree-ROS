@@ -4,7 +4,13 @@
 - Ubuntu18.04 LTS
 - ROS melodic 1.14.11
 - Unitree_Ros
-
+----
+目录：
+- 换清华源(可选)
+- Git SSH XRDP安装(建议)
+- ROS melodic 安装
+- LIO-SAM + unitree_ros 依赖安装
+- unitree_legged_sdk 安装
 ----
 待解决问题： 
 - [x]  LIO-SAM和unitree_ros的catkin_ws文件名冲突问题
@@ -40,6 +46,7 @@ sudo apt-get upgrade
 sudo apt -y upgrade
 ```
 
+----
 ### Git 安装
 ```
 sudo apt install -y git
@@ -69,7 +76,10 @@ chmod u+x Install-xrdp-3.0.sh
 ./Install-xrdp-3.0.sh
 ```
 
-### ROS melodic install
+----
+## ROS melodic 安装
+
+ROS melodic install
 
 来源： http://wiki.ros.org/melodic/Installation/Ubuntu      
 
@@ -105,7 +115,9 @@ sudo apt-get install -y python-rosinstall python-rosinstall-generator python-wst
 sudo apt-get install -y ros-melodic-ros-tutorials
 ```
 
-### LIO-SAM 运行依赖 SLAM相关
+----
+## LIO-SAM + unitree_ros 依赖安装
+### LIO-SAM 
 
 来源： https://github.com/TixiaoShan/LIO-SAM
 
@@ -132,7 +144,7 @@ cmake -DGTSAM_BUILD_WITH_MARCH_NATIVE=OFF -DGTSAM_USE_SYSTEM_EIGEN=ON ..
 
 sudo make install -j8  #不成功就 -j1
 ```
-
+LIO-SAM本体安装(可选项)    
 **LIO-SAM 需要特别注意是catkin_ws和 unitree_ros的catkin_ws 可能会重叠，后续待解决**
 ```
 cd ~/catkin_ws/src  
@@ -140,7 +152,6 @@ git clone https://github.com/TixiaoShan/LIO-SAM.git
 cd ..
 catkin_make
 ```
-
 
 ### unitree_ros dependencies
 
