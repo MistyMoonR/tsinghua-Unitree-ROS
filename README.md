@@ -71,7 +71,11 @@ https://github.com/IntelRealSense/realsense-ros
 
 Velodyne 16线激光雷达:      
 https://github.com/ros-drivers/velodyne.git    
-http://wiki.ros.org/velodyne/Tutorials/Getting%20Started%20with%20the%20Velodyne%20VLP16         
+http://wiki.ros.org/velodyne/Tutorials/Getting%20Started%20with%20the%20Velodyne%20VLP16    
+
+镭神激光雷达 C16:       
+https://github.com/tianb03/lslidar_c16      
+https://www.jianshu.com/p/d8efdf333e98
 
 C++ 键位函数：      
 https://www.iteye.com/blog/bingtears-663149

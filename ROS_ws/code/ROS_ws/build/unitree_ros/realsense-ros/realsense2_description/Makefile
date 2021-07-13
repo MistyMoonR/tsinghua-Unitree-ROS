@@ -78,6 +78,17 @@ list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
 
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -101,18 +112,6 @@ test/fast: test
 
 .PHONY : test/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -124,16 +123,17 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
 
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -168,19 +168,34 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description_nosetests_tests.dir/rule:
-	cd /home/ros/ROS_ws/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description_nosetests_tests.dir/rule
-.PHONY : unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description_nosetests_tests.dir/rule
+unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description.dir/rule:
+	cd /home/ros/ROS_ws/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description.dir/rule
+.PHONY : unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description.dir/rule
 
 # Convenience name for target.
-_run_tests_realsense2_description_nosetests_tests: unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description_nosetests_tests.dir/rule
+_run_tests_realsense2_description: unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description.dir/rule
 
-.PHONY : _run_tests_realsense2_description_nosetests_tests
+.PHONY : _run_tests_realsense2_description
 
 # fast build rule for target.
-_run_tests_realsense2_description_nosetests_tests/fast:
-	cd /home/ros/ROS_ws/build && $(MAKE) -f unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description_nosetests_tests.dir/build.make unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description_nosetests_tests.dir/build
-.PHONY : _run_tests_realsense2_description_nosetests_tests/fast
+_run_tests_realsense2_description/fast:
+	cd /home/ros/ROS_ws/build && $(MAKE) -f unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description.dir/build.make unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description.dir/build
+.PHONY : _run_tests_realsense2_description/fast
+
+# Convenience name for target.
+unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description_nosetests.dir/rule:
+	cd /home/ros/ROS_ws/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description_nosetests.dir/rule
+.PHONY : unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description_nosetests.dir/rule
+
+# Convenience name for target.
+_run_tests_realsense2_description_nosetests: unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description_nosetests.dir/rule
+
+.PHONY : _run_tests_realsense2_description_nosetests
+
+# fast build rule for target.
+_run_tests_realsense2_description_nosetests/fast:
+	cd /home/ros/ROS_ws/build && $(MAKE) -f unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description_nosetests.dir/build.make unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description_nosetests.dir/build
+.PHONY : _run_tests_realsense2_description_nosetests/fast
 
 # Convenience name for target.
 unitree_ros/realsense-ros/realsense2_description/CMakeFiles/clean_test_results_realsense2_description.dir/rule:
@@ -213,51 +228,6 @@ run_tests_realsense2_description/fast:
 .PHONY : run_tests_realsense2_description/fast
 
 # Convenience name for target.
-unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_catkin_empty_exported_target.dir/rule:
-	cd /home/ros/ROS_ws/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_catkin_empty_exported_target.dir/rule
-.PHONY : unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_catkin_empty_exported_target.dir/rule
-
-# Convenience name for target.
-_catkin_empty_exported_target: unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_catkin_empty_exported_target.dir/rule
-
-.PHONY : _catkin_empty_exported_target
-
-# fast build rule for target.
-_catkin_empty_exported_target/fast:
-	cd /home/ros/ROS_ws/build && $(MAKE) -f unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_catkin_empty_exported_target.dir/build.make unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_catkin_empty_exported_target.dir/build
-.PHONY : _catkin_empty_exported_target/fast
-
-# Convenience name for target.
-unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description.dir/rule:
-	cd /home/ros/ROS_ws/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description.dir/rule
-.PHONY : unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description.dir/rule
-
-# Convenience name for target.
-_run_tests_realsense2_description: unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description.dir/rule
-
-.PHONY : _run_tests_realsense2_description
-
-# fast build rule for target.
-_run_tests_realsense2_description/fast:
-	cd /home/ros/ROS_ws/build && $(MAKE) -f unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description.dir/build.make unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description.dir/build
-.PHONY : _run_tests_realsense2_description/fast
-
-# Convenience name for target.
-unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description_nosetests.dir/rule:
-	cd /home/ros/ROS_ws/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description_nosetests.dir/rule
-.PHONY : unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description_nosetests.dir/rule
-
-# Convenience name for target.
-_run_tests_realsense2_description_nosetests: unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description_nosetests.dir/rule
-
-.PHONY : _run_tests_realsense2_description_nosetests
-
-# fast build rule for target.
-_run_tests_realsense2_description_nosetests/fast:
-	cd /home/ros/ROS_ws/build && $(MAKE) -f unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description_nosetests.dir/build.make unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description_nosetests.dir/build
-.PHONY : _run_tests_realsense2_description_nosetests/fast
-
-# Convenience name for target.
 unitree_ros/realsense-ros/realsense2_description/CMakeFiles/run_tests_realsense2_description_nosetests.dir/rule:
 	cd /home/ros/ROS_ws/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_ros/realsense-ros/realsense2_description/CMakeFiles/run_tests_realsense2_description_nosetests.dir/rule
 .PHONY : unitree_ros/realsense-ros/realsense2_description/CMakeFiles/run_tests_realsense2_description_nosetests.dir/rule
@@ -287,6 +257,21 @@ run_tests_realsense2_description_nosetests_tests/fast:
 	cd /home/ros/ROS_ws/build && $(MAKE) -f unitree_ros/realsense-ros/realsense2_description/CMakeFiles/run_tests_realsense2_description_nosetests_tests.dir/build.make unitree_ros/realsense-ros/realsense2_description/CMakeFiles/run_tests_realsense2_description_nosetests_tests.dir/build
 .PHONY : run_tests_realsense2_description_nosetests_tests/fast
 
+# Convenience name for target.
+unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description_nosetests_tests.dir/rule:
+	cd /home/ros/ROS_ws/build && $(MAKE) -f CMakeFiles/Makefile2 unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description_nosetests_tests.dir/rule
+.PHONY : unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description_nosetests_tests.dir/rule
+
+# Convenience name for target.
+_run_tests_realsense2_description_nosetests_tests: unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description_nosetests_tests.dir/rule
+
+.PHONY : _run_tests_realsense2_description_nosetests_tests
+
+# fast build rule for target.
+_run_tests_realsense2_description_nosetests_tests/fast:
+	cd /home/ros/ROS_ws/build && $(MAKE) -f unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description_nosetests_tests.dir/build.make unitree_ros/realsense-ros/realsense2_description/CMakeFiles/_run_tests_realsense2_description_nosetests_tests.dir/build
+.PHONY : _run_tests_realsense2_description_nosetests_tests/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -295,19 +280,18 @@ help:
 	@echo "... depend"
 	@echo "... install"
 	@echo "... list_install_components"
+	@echo "... rebuild_cache"
 	@echo "... install/local"
 	@echo "... test"
-	@echo "... install/strip"
-	@echo "... _run_tests_realsense2_description_nosetests_tests"
+	@echo "... _run_tests_realsense2_description"
+	@echo "... _run_tests_realsense2_description_nosetests"
 	@echo "... edit_cache"
 	@echo "... clean_test_results_realsense2_description"
 	@echo "... run_tests_realsense2_description"
-	@echo "... rebuild_cache"
-	@echo "... _catkin_empty_exported_target"
-	@echo "... _run_tests_realsense2_description"
-	@echo "... _run_tests_realsense2_description_nosetests"
 	@echo "... run_tests_realsense2_description_nosetests"
 	@echo "... run_tests_realsense2_description_nosetests_tests"
+	@echo "... install/strip"
+	@echo "... _run_tests_realsense2_description_nosetests_tests"
 .PHONY : help
 
 

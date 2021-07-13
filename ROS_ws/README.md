@@ -15,10 +15,11 @@
 * unitree_ros
 * realsense_ros
 * velodyne
+* lslidar_c16
 
 
 问题：
-- [ ]  xxx      
+- [ ]  使用镭神激光雷达需要把本机IP地址改成192.168.1.102 (很不喜欢这一设定) , 而且 扫描图像可能有问题。    
 
 ## 系统框架图
 ![IMG](pictures/ROS_ws.png)
@@ -46,8 +47,8 @@ https://github.com/ros-drivers/velodyne.git
 
 ----
 
-## 
-
+## 镭神激光雷达包
+来源： https://github.com/tianb03/lslidar_c16
 
 ----
 

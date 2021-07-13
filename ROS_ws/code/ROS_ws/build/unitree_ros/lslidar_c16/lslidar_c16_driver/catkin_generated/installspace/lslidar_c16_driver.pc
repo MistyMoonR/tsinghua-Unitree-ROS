@@ -1,0 +1,8 @@
+prefix=/home/ros/ROS_ws/install
+
+Name: lslidar_c16_driver
+Description: Description of lslidar_c16_driver
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: angles pcl_ros roscpp sensor_msgs tf dynamic_reconfigure lslidar_c16_msgs nodelet message_runtime std_msgs

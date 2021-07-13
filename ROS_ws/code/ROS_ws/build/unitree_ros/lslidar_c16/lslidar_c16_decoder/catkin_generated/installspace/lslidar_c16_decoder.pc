@@ -1,0 +1,8 @@
+prefix=/home/ros/ROS_ws/install
+
+Name: lslidar_c16_decoder
+Description: Description of lslidar_c16_decoder
+Version: 1.0.0
+Cflags: -I${prefix}/include -I/usr/include
+Libs: -L${prefix}/lib /usr/lib/x86_64-linux-gnu/libboost_signals.so
+Requires: angles nodelet pcl_ros roscpp sensor_msgs tf lslidar_c16_driver lslidar_c16_msgs dynamic_reconfigure pcl_conversions
