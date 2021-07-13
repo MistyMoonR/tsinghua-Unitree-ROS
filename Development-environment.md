@@ -21,7 +21,7 @@
 切换清华源(建议)        
 来源： https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/
 
-```
+``` r
 sudo gedit /etc/apt/source.list
 ```
 把以下内容都复制粘贴进去
@@ -39,7 +39,7 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted
 ```
 
 更新软件源
-```
+``` r
 sudo apt-get update
 sudo apt -y update
 sudo apt-get upgrade
@@ -48,30 +48,30 @@ sudo apt -y upgrade
 
 ----
 ### Git 安装
-```
+``` r
 sudo apt install -y git
 ```
 
 ### SSH server 安装 + 开启
 状态查看
-```
+``` r
 dpkg -l | grep ssh
 ```
 
 一般来说直接install openssh-server就行
-```
+``` r
 sudo apt-get install -y openssh-server
 ```
 
 如果不行就重新装
-```
+``` r
 sudo apt-get  autoremove  openssh-client openssh-server 
 sudo apt-get install -y openssh-client openssh-server
 /etc/init.d/ssh restart #重启ssh ，测试成功
 ```
 
 ### XRDP 远程GUI
-```
+``` r
 chmod u+x Install-xrdp-3.0.sh
 ./Install-xrdp-3.0.sh
 ```
@@ -83,7 +83,7 @@ ROS melodic install
 
 来源： http://wiki.ros.org/melodic/Installation/Ubuntu      
 
-```
+``` r
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 
 sudo apt install curl # if you haven't already installed curl
@@ -109,7 +109,7 @@ rosdep update
 ```
 
 完成安装 下面依懒 + tutorials 方便测试是否装成功(可选)
-```
+``` r
 sudo apt-get install -y python-rosinstall python-rosinstall-generator python-wstool build-essential
 
 sudo apt-get install -y ros-melodic-ros-tutorials
@@ -122,7 +122,7 @@ sudo apt-get install -y ros-melodic-ros-tutorials
 来源： https://github.com/TixiaoShan/LIO-SAM
 
 ROS Dependency 
-```
+``` r
 sudo apt-get install -y ros-melodic-navigation
 sudo apt-get install -y ros-melodic-robot-localization
 sudo apt-get install -y ros-melodic-robot-state-publisher
@@ -131,7 +131,7 @@ sudo apt-get install -y ros-melodic-robot-state-publisher
 GTSAM: Georgia Tech Smoothing and Mapping library   
 来源：https://github.com/borglab/gtsam/releases
 
-```
+``` r
 wget -O ~/Downloads/gtsam.zip https://github.com/borglab/gtsam/archive/4.0.2.zip
 
 cd ~/Downloads/ && unzip gtsam.zip -d ~/Downloads/
@@ -146,7 +146,7 @@ sudo make install -j8  #不成功就 -j1
 ```
 LIO-SAM本体安装(可选项)    
 **LIO-SAM 需要特别注意是catkin_ws和 unitree_ros的catkin_ws 可能会重叠，后续待解决**
-```
+``` r
 cd ~/catkin_ws/src  
 git clone https://github.com/TixiaoShan/LIO-SAM.git
 cd ..
@@ -160,7 +160,7 @@ catkin_make
 ROS `unitree_legged_sdk` 前先编译LCM
 LCM-UDP： 数据通信相关
 
-```
+``` r
 git clone https://github.com/lcm-proj/lcm.git
 cd lcm
 mkdir build
@@ -170,7 +170,7 @@ make
 sudo make install
 ```
 ` unitree_legged_sdk`  编译
-```
+``` r
 git clone https://github.com/unitreerobotics/unitree_legged_sdk.git
 cd unitree_legged_sdk
 mkdir build
@@ -204,7 +204,7 @@ unitree ROS ： `unitree_ros`  编译 (可选)
 文档链接: 
 [ROS_ws](\ROS_ws\README.md)
 
-```
+``` r
 mkdir -p catkin_ws/src
 cd catkin_ws/src
 catkin_init_workspace
