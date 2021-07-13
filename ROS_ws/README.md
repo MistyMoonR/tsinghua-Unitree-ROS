@@ -22,14 +22,14 @@
 - [ ]  使用镭神激光雷达需要把本机IP地址改成192.168.1.102 (很不喜欢这一设定) , 而且 扫描图像可能有问题。    
 
 ## 系统框架图
-![IMG](pictures/ROS_ws.png)
+![IMG](pictures/ROS_ws_V0.3.png)
 
 ----
 
 # 基于宇树科技的unitree_ros构建一个工作空间
 ## 
 
-基本思路： 下载unitree_ros然后编译，注意 ~/.bashrc文件      
+基本思路： 下载`unitree_ros`然后编译，注意 `~/.bashrc`文件      
 然后装入相机ROS： https://github.com/IntelRealSense/realsense-ros       
 
 激光雷达ROS：
@@ -49,6 +49,15 @@ https://github.com/ros-drivers/velodyne.git
 
 ## 镭神激光雷达包
 来源： https://github.com/tianb03/lslidar_c16
+
+测试：  
+
+```
+roslaunch lslidar_c16_decoder lslidar_c16.launch --screen    
+```
+需要把 `Global Options` 中修改为 `/laser_link`
+
+![IMG](pictures/lslidar_c16_7.13.png)
 
 ----
 
