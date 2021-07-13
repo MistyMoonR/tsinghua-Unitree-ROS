@@ -37,7 +37,7 @@
 ## 建图任务 ： `build_map.launch`       
 
 启动激光雷达:   
-```
+``` 
 $(find velodyne_pointcloud)/launch/VLP16_points.launch
 ```    
 3D SLAM 建图算法 lio-sam: 
@@ -108,7 +108,7 @@ Gazebo没高层运动控制
 /unitree_ros/unitree_gaebo/launch/normal.launch 头部可以更改default="a1"
 
 运行部分： 
-``` 
+``` R
 roslaunch unitree_gazebo normal.launch 
 
 ##下面新开两个终端分别运行
@@ -125,7 +125,7 @@ unitree_controller文件夹里面的CmakeLists.txt
 
 ## **Rviz 可视化** 
 
-``` 
+``` r
 # 运行launch 需要连接机器人才行 没测试过
 roslaunch a1_description a1_rviz.launch
 ```    
