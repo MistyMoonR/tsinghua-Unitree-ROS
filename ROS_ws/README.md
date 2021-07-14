@@ -65,6 +65,16 @@ roslaunch lslidar_c16_decoder lslidar_c16.launch --screen
 ## 九轴IMU - Spatial :  
 来源：https://www.advancednavigation.com/products/spatial 
 
+ROS: http://wiki.ros.org/advanced_navigation_driver     
+
+``` r
+rosrun advanced_navigation_driver advanced_navigation_driver
+``` 
+
+``` r
+sudo java -jar SpatialManager-5.8.jar 
+``` 
+
 ![IMG](pictures/spatial.png)
 ----
 
