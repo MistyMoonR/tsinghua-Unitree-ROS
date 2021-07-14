@@ -1,0 +1,41 @@
+Advanced Navigation Packet Protocol Spatial SDK Version 4.0
+Utilities
+
+******************
+**** EXAMPLES ****
+******************
+
+ANPP Log Decoder:
+	Contains code for decoding .anpp log files produced by Spatial Manager
+
+Atmel ANPP:
+	Contains code for interfacing Spatial with Atmel AVR systems.
+
+Example Spatial Manager Log:
+	Contains a log file from Spatial Manager connected to a Spatial unit.
+
+Matlab Log Import:
+	Matlab code for importing Spatial Manager state and sensor logs into Matlab.
+	
+State Log Parser:
+	C code for parsing Spatial Manager exported CSV state log file.
+	
+*******************
+**** CHANGELOG ****
+*******************
+
+v4.0:
+	Added Firmware Update utility
+	Updated Matlab log import (time is floating point)
+v3.0:
+	No changes
+v2.3:
+	Added new .anpp format log file to Example Log File directory
+	(Use Spatial Manager to convert to CSV)
+	Added ANPP Log Decoder to decode new .anpp log files from Spatial Manager
+	Modified State Log Parser for revised state log format
+	Modified Matlab state_log_import.m for revised state log format
+v2.2:
+	No Changes
+v2.1:
+	First Release

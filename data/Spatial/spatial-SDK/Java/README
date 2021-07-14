@@ -1,0 +1,46 @@
+Advanced Navigation Packet Protocol Spatial SDK Version 4.0
+Java Language SDK
+
+******************
+**** EXAMPLES ****
+******************
+
+ANPPExample is an example Java GUI that connects to the serial port and displays data in real time. There is a prebuilt jar in the dist directory that you can run without having to compile anything. This is an eclipse project.
+
+*******************
+**** COMPILING ****
+*******************
+
+All Platforms:
+	1. Install Eclipse http://www.eclipse.org/
+	2. Install WindowBuilder http://www.eclipse.org/windowbuilder/
+	3. In Eclipse, File->Import, Existing Projects into Workspace
+	4. Run button, choose Main class in com.advancednavigation.anppExample
+	5. To use WindowBuilder, right click, Open With->WindowBuilder Editor, then click on the design tab
+	
+*******************
+**** CHANGELOG ****
+*******************
+
+v4.0:
+	Added type inference for String generics
+v3.0:
+	PortScanner class now checks for port changes in a more thorough way
+v2.3:
+	No changes
+v2.2:
+	ANPacket23.java added
+v2.1:
+	No changes
+v2.0:
+	No changes
+v1.1:
+	No changes
+v1.0:
+	Switch from rxtx library to jssc library for serial port communication
+v0.5:
+	Serial port scanner moved to seperate thread for increased responsiveness
+v0.2:
+	Minor changes to packet variables naming
+v0.1:
+	First Release

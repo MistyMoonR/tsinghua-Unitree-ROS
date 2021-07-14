@@ -1,0 +1,38 @@
+Advanced Navigation Packet Protocol SDK Version 4.0
+.Net Language SDK
+
+*******************
+**** COMPILING ****
+*******************
+
+This example is written in C# .NET and developed in Microsoft Visual Studio 2012.
+
+To develop with this example Microsoft Visual Studio Express 2012 is available for free from:
+http://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-windows-desktop#product-express-desktop-details
+
+To open the project File->Open Project and select ANPPExample.sln
+	
+*******************
+**** CHANGELOG ****
+*******************
+
+v4.0:
+	No changes
+v3.0:
+	Updated serial port combobox to non-editable
+	Updated baud rate combobox to non-editable
+	updatePorts() checks for port changes in a better way
+v2.3:
+	No changes
+v2.2:
+	No changes
+v2.1:
+	No changes
+v2.0:
+	No changes
+v1.1:
+	No changes
+v1.0:
+	No changes
+v0.5:
+	First Release
