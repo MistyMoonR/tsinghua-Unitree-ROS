@@ -1,0 +1,8 @@
+prefix=/home/ros/ROS_ws/install
+
+Name: advanced_navigation_driver
+Description: Description of advanced_navigation_driver
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

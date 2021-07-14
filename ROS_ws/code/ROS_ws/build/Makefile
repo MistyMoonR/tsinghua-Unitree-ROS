@@ -1143,6 +1143,19 @@ tf2_msgs_generate_messages_cpp/fast:
 .PHONY : tf2_msgs_generate_messages_cpp/fast
 
 #=============================================================================
+# Target rules for targets named advanced_navigation_driver
+
+# Build rule for target.
+advanced_navigation_driver: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 advanced_navigation_driver
+.PHONY : advanced_navigation_driver
+
+# fast build rule for target.
+advanced_navigation_driver/fast:
+	$(MAKE) -f unitree_ros/advanced_navigation_driver/CMakeFiles/advanced_navigation_driver.dir/build.make unitree_ros/advanced_navigation_driver/CMakeFiles/advanced_navigation_driver.dir/build
+.PHONY : advanced_navigation_driver/fast
+
+#=============================================================================
 # Target rules for targets named lslidar_c16_msgs_genpy
 
 # Build rule for target.
@@ -4298,6 +4311,7 @@ help:
 	@echo "... actionlib_msgs_generate_messages_lisp"
 	@echo "... actionlib_msgs_generate_messages_py"
 	@echo "... tf2_msgs_generate_messages_cpp"
+	@echo "... advanced_navigation_driver"
 	@echo "... lslidar_c16_msgs_genpy"
 	@echo "... _lslidar_c16_msgs_generate_messages_check_deps_LslidarC16Sweep"
 	@echo "... _lslidar_c16_msgs_generate_messages_check_deps_LslidarC16ScanUnified"

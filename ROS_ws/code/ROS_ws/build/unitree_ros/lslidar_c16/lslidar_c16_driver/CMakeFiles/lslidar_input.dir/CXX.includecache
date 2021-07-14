@@ -6,6 +6,22 @@
 
 #IncludeRegexTransform: 
 
+/home/ros/ROS_ws/devel/include/lslidar_c16_msgs/LslidarC16Packet.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+
 /home/ros/ROS_ws/src/unitree_ros/lslidar_c16/lslidar_c16_driver/include/lslidar_c16_driver/input.h
 unistd.h
 -
@@ -43,22 +59,6 @@ sensor_msgs/TimeReference.h
 /home/ros/ROS_ws/src/unitree_ros/lslidar_c16/lslidar_c16_driver/src/input.cc
 lslidar_c16_driver/input.h
 /home/ros/ROS_ws/src/unitree_ros/lslidar_c16/lslidar_c16_driver/src/lslidar_c16_driver/input.h
-
-/home/ros/lslidar_c16_ws/devel/include/lslidar_c16_msgs/LslidarC16Packet.h
-string
--
-vector
--
-map
--
-ros/types.h
--
-ros/serialization.h
--
-ros/builtin_message_traits.h
--
-ros/message_operations.h
--
 
 /opt/ros/melodic/include/ros/advertise_options.h
 ros/forwards.h

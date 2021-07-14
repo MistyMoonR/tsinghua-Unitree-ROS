@@ -18,7 +18,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/home/ros/ROS_ws/src/unitree_ros/lslidar_c16/lslidar_c16_decoder/include"
-  "/home/ros/lslidar_c16_ws/devel/include"
+  "/home/ros/ROS_ws/devel/include"
   "/opt/ros/melodic/include"
   "/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
   "/usr/include/eigen3"
