@@ -19,14 +19,20 @@ ROS + SLAM
 
 **分两条线路进行**
 
-- [南科大patroldog_ws的研究](/patroldog_ws)
+- [ROS工作空间](/ROS_ws)
+    - 激光雷达
+    - 9轴IMU
+    - 双目摄像头
 
-- [构建自己的ROS工作空间](/ROS_ws)
+- [南科大patroldog_ws的研究](/patroldog_ws) (已放弃)
+
 
 
 ## 文档链接
 
-[开发环境 安装 步骤](/Development-environment.md)     
+**[ROS_ws](ROS_ws/README.md)**
+
+**[开发环境 安装 步骤](/Development-environment.md)**     
 
 [unitree ros 开发笔记](/Notes.md)     
 
