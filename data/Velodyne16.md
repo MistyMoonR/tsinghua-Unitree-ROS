@@ -1,10 +1,13 @@
-# Development environment
+# Velodyne 激光雷达
 
 系统环境： 
 - Ubuntu18.04.5 LTS aarch64
 - Kernel 4.9.140-tegra
 - ROS melodic 1.14.11
 
+硬件：
+- Jetson Xaiver NX
+- Velodyne16
 ----
 待解决问题： 
 - [ ]  

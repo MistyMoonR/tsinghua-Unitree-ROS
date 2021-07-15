@@ -26,8 +26,6 @@ ROS + SLAM
 
 - [南科大patroldog_ws的研究](/patroldog_ws) (已放弃)
 
-
-
 ## 文档链接
 
 **[ROS_ws](ROS_ws/README.md)**

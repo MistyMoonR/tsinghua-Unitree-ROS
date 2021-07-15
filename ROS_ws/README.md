@@ -9,19 +9,23 @@
 
 硬件：
 - NUC8 i7-8650U
+- Advanced Navigation Spatial + Tallysman GPS
+- 镭神激光雷达 C16
+- intel D435i
 ----
 
 目录： 
 * unitree_ros     
 * realsense_ros
-* velodyne
+* velodyne(可选)
 * lslidar_c16
 * advanced_navigation_driver
 
 
 问题：
-- [x]  使用镭神激光雷达需要把本机IP地址改成192.168.1.102 (很不喜欢这一设定) , 而且 扫描图像可能有问题。    
+- [x] 使用镭神激光雷达需要把本机IP地址改成192.168.1.102 (很不喜欢这一设定) , 而且 扫描图像可能有问题。    
 - [ ] Spatial 九轴陀螺仪有ROS包，官方(MIT)提供的包发现CPU占用过高，Github上有另外fork，但是放到ROS_ws编译不通过，先放着
+- [ ] ROS包里面没发现GPS，后续查看
 
 ## 系统框架图
 ![IMG](pictures/ROS_ws_V0.4.png)
@@ -33,10 +37,9 @@
 基本思路： 下载`unitree_ros`然后编译，注意 `~/.bashrc`文件      
 然后装入相机ROS： https://github.com/IntelRealSense/realsense-ros       
 
-激光雷达ROS：
-https://github.com/ros-drivers/velodyne.git
 
-说明文档： http://wiki.ros.org/velodyne/Tutorials/Getting%20Started%20with%20the%20Velodyne%20VLP16
+[Velodyne激光雷达ROS](/data/Velodyne16.md)(可选)
+
 ## 
   
 ----
