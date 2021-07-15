@@ -35,14 +35,6 @@ rosrun advanced_navigation_driver advanced_navigation_driver
 sudo java -jar SpatialManager-5.8.jar 
 ``` 
 
-
-----
-来源：      
-https://www.advancednavigation.com/products/spatial
-
-https://github.com/kylerlaird/advanced_navigation_driver
-
-
 ---- 
 
 # Advanced Navigation ROS Driver
@@ -64,11 +56,12 @@ If you require any assistance using this code, please email support@advancednavi
 ## Build Instructions
 ROS driver build instructions from: http://www.clearpathrobotics.com/assets/guides/ros/Creating%20publisher.html#creating-a-workspace-package
 
-1. Open a new Terminal window and type: `mkdir ~/ros[enter]`.
-2. Type: `mkdir ~/ros/src[enter]`.
-3. Type: `cd ~/ros/src[enter]`.
-4. Type: `catkin_init_workspace[enter]`.
-5. Type: `catkin_create_pkg advanced_navigation_driver roscpp std_msgs[enter]`.
+
+1. Open a new Terminal window and type: `mkdir ~/ros [enter]`.
+2. Type: `mkdir ~/ros/src [enter]`.
+3. Type: `cd ~/ros/src [enter]`.
+4. Type: `catkin_init_workspace [enter]`.
+5. Type: `catkin_create_pkg advanced_navigation_driver roscpp std_msgs [enter]`.
 6. Copy the supplied `src` directory and the `package.xml` file into the `~/ros/src/advanced_navigation_driver` directory. It should be OK to overwrite the existing `package.xml` file if you are following these instructions explicitly. If installing into your own pre-existing catkin workspace it may be necessary to manually merge the contents of these files.
 7. Modify the `package.xml` file in ~/ros/src/an_driver directory as required.
 8. Copy the supplied `CMakeLists.txt`file into the `~/ros/src/advanced_navigation_driver` directory, or modify the exisitng CMakeLists.txt file in the `~/ros/src/advanced_navigation_driver` directory by adding two lines at the end (you may need to modify the paths to suit your installation):
@@ -84,16 +77,18 @@ ROS driver build instructions from: http://www.clearpathrobotics.com/assets/guid
 To use this example code, your Advanced Navigation device should be already configured to output anpp packets #20 and #27.
 
 ## Run Instructions
-1. Open a new Terminal window and type: `sudo adduser user_name dialout[enter]`. This should only need to be done once.
+1. Open a new Terminal window and type: `sudo adduser user_name dialout [enter]`. This should only need to be done once.
 2. Plug in the USB to RS232 adapter cable that is connected to the Advanced Navigation device.
 3. In the Terminal window type: `dmesg | grep tty [enter]` to confirm the name of the com port (should be something like `ttyUSB0`).
-4. Type: `roscore[enter]` to start ROS Master.
-5. Open a new Terminal window and type: `source ~/ros/devel/setup.bash[enter]`.
-6. If your com port is named `ttyUSB0` and your baud rate is set to 115200 bps, type: `rosrun advanced_navigation_driver advanced_navigation_driver [enter]`. If your com port or baud rate are different then type: `rosrun advanced_navigation_driver advanced_navigation_driver /dev/your_com_port_name your_baud_rate [enter]`. 
-7. Open a new Terminal window and type: `rosnode list[enter]` to list the available nodes. You should see these listed:
+4. Type: `roscore [enter]` to start ROS Master.
+5. Open a new Terminal window and type: `source ~/ros/devel/setup.bash [enter]`.
+6. If your com port is named `ttyUSB0` and your baud rate is set to 115200 bps, type: `rosrun advanced_navigation_driver advanced_navigation_driver  [enter]`. If your com port or baud rate are different then type: `rosrun advanced_navigation_driver advanced_navigation_driver /dev/your_com_port_name your_baud_rate [enter]`. 
+7. Open a new Terminal window and type: `rosnode list [enter]` to list the available nodes. You should see these listed:
+    ```
    /an_device_node
    /rosout
-8. Type: `rostopic list[enter]` to list the published topics. You should see these listed:      
+    ```
+8. Type: `rostopic list [enter]` to list the published topics. You should see these listed:      
    ```
    /an_device/FilterStatus      
    /an_device/Imu       
@@ -178,3 +173,11 @@ diagnostic_msgs / Diagnostic_Status / Message		# Packet 20, Field 2, Varies
 sensor_msgs / Imu / Angular_Velocity_Covariance 
 sensor_msgs / Imu / Linear_Acceleration_Covariance
 ``` 
+
+
+----
+来源：      
+https://www.advancednavigation.com/products/spatial
+
+https://github.com/kylerlaird/advanced_navigation_driver
+
