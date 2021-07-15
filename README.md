@@ -7,15 +7,20 @@ ROS + SLAM
 硬件：  
 * Upboard : Z8350处理器 4G内存 64G 硬盘   
 * 上位机 : Jetson Xaiver NX / NUC8 i7-8650U
-* 激光雷达 : Velodyne-16
+* 激光雷达 : [Velodyne-16](data/Velodyne16.md) / 镭神 C16
+* [IMU: Advanced Navigation Spatial + Tallysman GPS](data/Spatial.md)
+* 摄像头: intel D435i
 
 系统环境： 
 - Ubuntu18.04 LTS
 - ROS melodic 1.14.11
 
 ----
-## 文档说明
+## 学习资料:
+**[机器人操作系统（ROS）浅析](doc/机器人操作系统（ROS）浅析.pdf)**
 
+
+## 文档说明
 
 **分两条线路进行**
 
@@ -47,8 +52,9 @@ ROS + SLAM
 - [x]  Unitree_ROS 的 Gazebo 动力学仿真(中止)
 - [x]  unitree_legged_sdk API库研究(不用看，基于ROS上运行)
 - [ ]  LIO-SAM开源的SLAM建模
-- [ ]  研究patroldog_ws 相关代码(能运行基本功能，需二次开发)
+- [x]  研究patroldog_ws 相关代码(能运行基本功能，需二次开发)
 - [ ]  构建自己的ROS_ws项目，完善文档
+- [ ]  - 
 
 
 ----
