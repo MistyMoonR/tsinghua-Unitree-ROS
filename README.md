@@ -7,8 +7,8 @@ ROS + SLAM
 硬件：  
 * Upboard : Z8350处理器 4G内存 64G 硬盘   
 * 上位机 : Jetson Xaiver NX / NUC8 i7-8650U
-* 激光雷达 : [Velodyne-16](data/Velodyne16.md) / 镭神 C16
-* [IMU: Advanced Navigation Spatial + Tallysman GPS](data/Spatial.md)
+* 激光雷达 : [Velodyne-16](data/Velodyne_16.md) / [镭神 C16](data/lslidar_c16.md)
+* IMU: [Advanced Navigation Spatial + Tallysman GPS](data/Spatial.md)
 * 摄像头: intel D435i
 
 系统环境： 
@@ -24,27 +24,23 @@ ROS + SLAM
 
 **分两条线路进行**
 
-- [ROS工作空间](/ROS_ws)
+- [ROS工作空间](ROS_ws)
     - 激光雷达
     - 9轴IMU
     - 双目摄像头
 
-- [南科大patroldog_ws的研究](/patroldog_ws) (已放弃)
+- [南科大patroldog_ws的研究](patroldog_ws) (已放弃)
 
 ## 文档链接
 
-**[ROS_ws](ROS_ws/README.md)**
-
-**[开发环境 安装 步骤](/Development-environment.md)**     
-
-[unitree ros 开发笔记](/Notes.md)     
-
-[unitree API接口协议](/data/API.md)     
-
-[键位函数](/data/keyboard.md)     
-
-[Velodyne-16线激光雷达](/data/A1-velodyne16.md)     
-
+- **[ROS_ws](ROS_ws/README.md)**
+- **[开发环境 安装 步骤](Development-environment.md)**     
+- [unitree ros 开发笔记](Notes.md)     
+- [unitree API接口协议](data/API.md)     
+- [键位函数](data/keyboard.md)     
+- [Velodyne-16线激光雷达](data/Velodyne_16.md)    
+- [镭神激光雷达](data/lslidar_c16.md)
+- [Spatial 九轴IMU](data/Spatial.md)
 
 ---
 ## 项目进度：
@@ -54,7 +50,7 @@ ROS + SLAM
 - [ ]  LIO-SAM开源的SLAM建模
 - [x]  研究patroldog_ws 相关代码(能运行基本功能，需二次开发)
 - [ ]  构建自己的ROS_ws项目，完善文档
-- [ ]  - 
+- [ ]  TF坐标变换 
 
 
 ----

@@ -17,9 +17,9 @@
 目录： 
 * unitree_ros     
 * realsense_ros
-* velodyne(可选)
-* lslidar_c16
-* advanced_navigation_driver
+* [velodyne(可选)](../data/Velodyne_16.md)
+* [lslidar_c16](../data/lslidar_c16.md)
+* [advanced_navigation_driver]((../data/Spatial.md))
 
 
 问题：
@@ -31,14 +31,28 @@
 ![IMG](pictures/ROS_ws_V0.4.png)
 
 ----
+下载 + 编译
+``` r
+git clone https://github.com/MistyMoonR/tsinghua-Unitree-ROS.git
 
+cd  #到~/home下
+mkdir -p ROS_ws/src
+cd ROS_ws/src
+catkin_init_workspace
+mv xxxx #把code里面的src拷贝过去
+cd ..
+catkin_make
+```
+
+
+----
 ## 基于宇树科技的unitree_ros构建一个工作空间
 
 基本思路： 下载`unitree_ros`然后编译，注意 `~/.bashrc`文件      
 然后装入相机ROS： https://github.com/IntelRealSense/realsense-ros       
 
 
-[Velodyne激光雷达ROS](/data/Velodyne16.md)(可选)
+[Velodyne激光雷达ROS](../data/Velodyne_16.md)(可选)
 
 ## 
   
@@ -46,7 +60,7 @@
 
 ## 首先需要安装环境 (重要)
 
-[开发环境 安装 步骤](/Development-environment.md) 
+[开发环境 安装 步骤](../Development-environment.md) 
 
 ----
 
