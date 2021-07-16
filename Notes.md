@@ -71,7 +71,7 @@ Gazebo没高层运动控制，坑。。。
 /unitree_ros/unitree_gaebo/launch/normal.launch 头部可以更改default="a1"
 
 运行部分： 
-``` r
+``` bash
 roslaunch unitree_gazebo normal.launch 
 
 ##下面新开两个终端分别运行
@@ -91,7 +91,7 @@ unitree_controller文件夹里面的CmakeLists.txt
 
 ## **Rviz 可视化** 
 
-``` r
+``` bash
 # 运行launch 需要连接机器人才行
 roslaunch a1_description a1_rviz.launch
 ```    

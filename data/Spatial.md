@@ -26,12 +26,12 @@ http://wiki.ros.org/advanced_navigation_driver  (CPU占用过高)
 https://github.com/kylerlaird/advanced_navigation_driver (编译不通过)   
 
 测试: 
-``` r
+``` bash
 rosrun advanced_navigation_driver advanced_navigation_driver
 ``` 
 
 **Advanced Navigation 提供的JAR工具包**
-``` r
+``` bash
 sudo java -jar SpatialManager-5.8.jar 
 ``` 
 
@@ -105,7 +105,7 @@ To use this example code, your Advanced Navigation device should be already conf
 
 ## Published Topics
 
-``` r
+``` bash
 an_device/NavSatFix     
 an_device/Twist     
 an_device/Imu       
@@ -115,7 +115,7 @@ an_device/FilterStatus
 
 ## Published Messages: an_device/NavSatFix
 
-``` r
+``` bash
 sensor_msgs / NavSatFix / Header / Stamp / Sec		#Packet 20, Field 3, Unix time
 sensor_msgs / NavSatFix / Header / Stamp / Nsec 	# Packet 20, Field 4, Unix time microseconds * 1000
 sensor_msgs / NavSatFix / Header / Frame_ID	 		# Fixed to 0
@@ -129,7 +129,7 @@ sensor_msgs / NavSatFix / Position_Covariance_Type	# Fixed to 2 (diagonal known)
 ``` 
 
 ## Published Messages: an_device/Twist
-``` r
+``` bash
 geometry_msgs / Twist / Linear / X					# Packet 20, Field 8, Metres per second
 geometry_msgs / Twist / Linear / Y					# Packet 20, Field 9, Metres per second
 geometry_msgs / Twist / Linear / Z					# Packet 20, Field 10, Metres per second
@@ -139,7 +139,7 @@ geometry_msgs / Twist / Angular / Z					# Packet 20, Field 20, Radians per secon
 ```
 
 ## Published Messages: an_device/Imu 
-``` r
+``` bash
 sensor_msgs / Imu / Orientation / X					# Packet 20, Fields 15, 16, 17, Converted from radians to quaternions
 sensor_msgs / Imu / Orientation / Y					# Packet 20, Fields 15, 16, 17, Converted from radians to quaternions
 sensor_msgs / Imu / Orientation / Z					# Packet 20, Fields 15, 16, 17, Converted from radians to quaternions
@@ -154,7 +154,7 @@ sensor_msgs / Imu / Linear_Acceleration / Z			# Packet 20, Field 13, Metres per 
 ```
 
 ## Published Messages: an_device/SystemStatus
-``` r
+``` bash
 diagnostic_msgs / Diagnostic_Status / Name			# Fixed to `System Status`
 diagnostic_msgs / Diagnostic_Status / Level			# Packet 20, Field 1, Set to 0 (OK) or 2 (ERROR)
 diagnostic_msgs / Diagnostic_Status / Message		# Packet 20, Field 1, Varies
@@ -162,14 +162,14 @@ diagnostic_msgs / Diagnostic_Status / Message		# Packet 20, Field 1, Varies
 
 ## Published Messages: an_device/FilterStatus
 
-``` r
+``` bash
 diagnostic_msgs / Diagnostic_Status / Name			# Fixed to `Filter Status`
 diagnostic_msgs / Diagnostic_Status / Level			# Packet 20, Field 2, Set to 0 (OK) or 1 (WARN)
 diagnostic_msgs / Diagnostic_Status / Message		# Packet 20, Field 2, Varies
 ``` 
 
 ## Messages Not Published 
-``` r
+``` bash
 sensor_msgs / Imu / Angular_Velocity_Covariance 
 sensor_msgs / Imu / Linear_Acceleration_Covariance
 ``` 

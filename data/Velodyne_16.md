@@ -13,11 +13,11 @@
 - [ ]  -
 ----
 安装依懒(重要)
-``` r
+``` bash
 sudo apt-get install ros-VERSION-velodyne
 ```
 安装驱动(需要到自己的工作空间下)
-``` r
+``` bash
 cd ~/catkin_ws/src/ #需要修改path
 
 git clone https://github.com/ros-drivers/velodyne.git
@@ -30,7 +30,7 @@ catkin_make
 ```
 
 测试(可选)
-``` r
+``` bash
 roslaunch velodyne_pointcloud VLP16_points.launch
 
 rosnode list

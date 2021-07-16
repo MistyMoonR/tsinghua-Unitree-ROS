@@ -58,6 +58,7 @@ ROS + SLAM
 ![IMG](pictures/HW.png)
 ## 软件架构图
 ![IMG](pictures/SW.png)
+
 ----
 ## 引用：
      
@@ -97,3 +98,6 @@ https://github.com/lnotspotl/a1_sim_py
 Google research:        
 https://xbpeng.github.io/projects/Robotic_Imitation/index.html      
 https://ai.googleblog.com/2020/04/exploring-nature-inspired-robot-agility.html
+
+----
+使用 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd> 重启电脑

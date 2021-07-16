@@ -6,7 +6,7 @@
 - Unitree_Ros change to ROS_ws
 
 硬件：
-- NUC8 i7-8650U
+- NUC8 i7-8650U 
 - 镭神激光雷达 C16
 
 ----
@@ -20,7 +20,7 @@
 
 测试：  
 
-``` r
+``` bash
 roslaunch lslidar_c16_decoder lslidar_c16.launch --screen    
 ```
 需要把 `Global Options` 中修改为 `/laser_link`

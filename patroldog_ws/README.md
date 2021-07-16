@@ -108,7 +108,7 @@ Gazebo没高层运动控制
 /unitree_ros/unitree_gaebo/launch/normal.launch 头部可以更改default="a1"
 
 运行部分： 
-``` R
+``` bash
 roslaunch unitree_gazebo normal.launch 
 
 ##下面新开两个终端分别运行

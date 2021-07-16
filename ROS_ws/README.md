@@ -32,7 +32,7 @@
 
 ----
 下载 + 编译
-``` r
+``` bash
 git clone https://github.com/MistyMoonR/tsinghua-Unitree-ROS.git
 
 cd  #到~/home下
@@ -69,7 +69,7 @@ catkin_make
 
 测试：  
 
-``` r
+``` bash
 roslaunch lslidar_c16_decoder lslidar_c16.launch --screen    
 ```
 需要把 `Global Options` 中修改为 `/laser_link`
@@ -86,14 +86,14 @@ http://wiki.ros.org/advanced_navigation_driver  (CPU占用过高)
 https://github.com/kylerlaird/advanced_navigation_driver (编译不通过)  
 
 测试: 
-``` r
+``` bash
 rosrun advanced_navigation_driver advanced_navigation_driver
 ``` 
 [Advanced Navigation ROS Driver Notes.txt](code/ROS_ws/src/unitree_ros/advanced_navigation_driver/Advanced-Navigation-ROS-Driver-Notes.txt) 在 `/ROS_ws/src/unitree_ros/advanced_navigation_driver` 里面有详细介绍
 
 
 **Advanced Navigation 提供的JAR工具包**
-``` r
+``` bash
 sudo java -jar SpatialManager-5.8.jar 
 ``` 
 
