@@ -109,3 +109,5 @@ sudo java -jar SpatialManager-5.8.jar
 
 单独IMU只能发布数据(echo)
 
+BLOG: [32线镭神雷达跑LeGO-LOAM：3D 激光SLAM](https://blog.csdn.net/weixin_44208916/article/details/106094490)
+
