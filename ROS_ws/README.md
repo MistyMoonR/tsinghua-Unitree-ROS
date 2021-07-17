@@ -26,6 +26,7 @@
 - [x] 使用镭神激光雷达需要把本机IP地址改成192.168.1.102 (很不喜欢这一设定) , 而且 扫描图像可能有问题。    
 - [ ] Spatial 九轴陀螺仪有ROS包，官方(MIT)提供的包发现CPU占用过高，Github上有另外fork，但是放到ROS_ws编译不通过，先放着
 - [ ] ROS包里面没发现GPS，后续查看
+- [ ] IMU和激光雷达数据融合
 
 ## 系统框架图
 ![IMG](pictures/ROS_ws_V0.4.png)
@@ -78,8 +79,9 @@ roslaunch lslidar_c16_decoder lslidar_c16.launch --screen
 
 ----
 
-## 九轴IMU - Spatial :  
-来源：https://www.advancednavigation.com/products/spatial 
+## 九轴IMU - Spatial:     
+Official website: [Spatial](https://www.advancednavigation.com/products/spatial)        
+ROS wiki: [advanced_navigation_driver](http://wiki.ros.org/advanced_navigation_driver) 
 
 ROS:         
 http://wiki.ros.org/advanced_navigation_driver  (CPU占用过高)  
@@ -89,18 +91,21 @@ https://github.com/kylerlaird/advanced_navigation_driver (编译不通过)
 ``` bash
 rosrun advanced_navigation_driver advanced_navigation_driver
 ``` 
-[Advanced Navigation ROS Driver Notes.txt](code/ROS_ws/src/unitree_ros/advanced_navigation_driver/Advanced-Navigation-ROS-Driver-Notes.txt) 在 `/ROS_ws/src/unitree_ros/advanced_navigation_driver` 里面有详细介绍
+[`Advanced Navigation ROS Driver Notes.txt`](code/ROS_ws/src/unitree_ros/advanced_navigation_driver/Advanced-Navigation-ROS-Driver-Notes.txt) 在 `/ROS_ws/src/unitree_ros/advanced_navigation_driver` 里面有详细介绍
 
 
 **Advanced Navigation 提供的JAR工具包**
+
+文件: [`SpatialManager-5.8.jar`](../data/Spatial/SpatialManager-5.8.jar)
 ``` bash
 sudo java -jar SpatialManager-5.8.jar 
 ``` 
 
 ![IMG](pictures/spatial.png)
+
 ----
+# IMU的坐标变换 TF
+看起来应该要依附某种东西比如激光雷达身上才能做一个坐标
 
-
-
-
+单独IMU只能发布数据(echo)
 

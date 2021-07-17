@@ -33,6 +33,7 @@
 
 ![IMG](rostopic.png)
 
+
 # start 篇
 ## 建图任务 ： `build_map.launch`       
 
@@ -125,7 +126,7 @@ unitree_controller文件夹里面的CmakeLists.txt
 
 ## **Rviz 可视化** 
 
-``` r
+``` bash
 # 运行launch 需要连接机器人才行 没测试过
 roslaunch a1_description a1_rviz.launch
 ```    

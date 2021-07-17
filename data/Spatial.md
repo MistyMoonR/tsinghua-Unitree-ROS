@@ -17,13 +17,17 @@
 ----
 待解决问题： 
 - [ ]  Spatial 九轴陀螺仪有ROS包，官方(MIT)提供的包发现CPU占用过高，Github上有另外fork，但是放到ROS_ws编译不通过，先放着
-- [ ]  ROS包里面没发现GPS，后续查看
+- [X]  ROS包里面没发现GPS，后续查看 `NavSatFix`
 ----
 
+## 九轴IMU - Spatial:     
+Official website: [Spatial](https://www.advancednavigation.com/products/spatial)        
+ROS wiki: [advanced_navigation_driver](http://wiki.ros.org/advanced_navigation_driver) 
+
 ## 安装ROS驱动(需要到自己的工作空间下)     
-来源有两种:        
-http://wiki.ros.org/advanced_navigation_driver  (CPU占用过高)   
-https://github.com/kylerlaird/advanced_navigation_driver (编译不通过)   
+来源有两种:          
+http://wiki.ros.org/advanced_navigation_driver  (CPU占用过高)  
+https://github.com/kylerlaird/advanced_navigation_driver (编译不通过)  
 
 测试: 
 ``` bash
@@ -31,9 +35,12 @@ rosrun advanced_navigation_driver advanced_navigation_driver
 ``` 
 
 **Advanced Navigation 提供的JAR工具包**
+文件: [`SpatialManager-5.8.jar`](../data/Spatial/SpatialManager-5.8.jar)
 ``` bash
 sudo java -jar SpatialManager-5.8.jar 
 ``` 
+
+![IMG](../ROS_ws/pictures/spatial.png)
 
 ---- 
 
@@ -106,26 +113,26 @@ To use this example code, your Advanced Navigation device should be already conf
 ## Published Topics
 
 ``` bash
-an_device/NavSatFix     
-an_device/Twist     
-an_device/Imu       
-an_device/SystemStatus      
-an_device/FilterStatus      
+an_device/NavSatFix     # GPS:  Latitude(纬度) + Longitude(经度) + Altitude(海拔高度)
+an_device/Twist         # Linear + Angular
+an_device/Imu           # Orientation + Angular_Velocity + Linear_Acceleration
+an_device/SystemStatus  # 系统状态   
+an_device/FilterStatus  # 过滤器状态     
 ```
 
 ## Published Messages: an_device/NavSatFix
 
 ``` bash
-sensor_msgs / NavSatFix / Header / Stamp / Sec		#Packet 20, Field 3, Unix time
-sensor_msgs / NavSatFix / Header / Stamp / Nsec 	# Packet 20, Field 4, Unix time microseconds * 1000
-sensor_msgs / NavSatFix / Header / Frame_ID	 		# Fixed to 0
-sensor_msgs / NavSatFix / Status / Status			# Packet 20, Field 2, Translated from anpp fix type
-sensor_msgs / NavSatFix / Status / Service			# Fixed to 1 (GPS)
-sensor_msgs / NavSatFix / Latitude					# Packet 20, Field 5, Converted from radians to degrees 
-sensor_msgs / NavSatFix / Longitude					# Packet 20, Field 6, Converted from radians to degrees 
-sensor_msgs / NavSatFix / Altitude					# Packet 20, Field 7, Metres
-sensor_msgs / NavSatFix / Position_Covariance		# Packet 20, Fields 21, 22, 23, Variance on the diagonals only, converted from standard deviation metres
-sensor_msgs / NavSatFix / Position_Covariance_Type	# Fixed to 2 (diagonal known)
+sensor_msgs / NavSatFix / Header / Stamp / Sec		   # Packet 20, Field 3, Unix time
+sensor_msgs / NavSatFix / Header / Stamp / Nsec 	   # Packet 20, Field 4, Unix time microseconds * 1000
+sensor_msgs / NavSatFix / Header / Frame_ID	 		   # Fixed to 0
+sensor_msgs / NavSatFix / Status / Status			      # Packet 20, Field 2, Translated from anpp fix type
+sensor_msgs / NavSatFix / Status / Service		   	# Fixed to 1 (GPS)
+sensor_msgs / NavSatFix / Latitude					      # Packet 20, Field 5, Converted from radians to degrees 
+sensor_msgs / NavSatFix / Longitude					      # Packet 20, Field 6, Converted from radians to degrees 
+sensor_msgs / NavSatFix / Altitude					      # Packet 20, Field 7, Metres
+sensor_msgs / NavSatFix / Position_Covariance	   	# Packet 20, Fields 21, 22, 23, Variance on the diagonals only, converted from standard deviation metres
+sensor_msgs / NavSatFix / Position_Covariance_Type	   # Fixed to 2 (diagonal known)
 ``` 
 
 ## Published Messages: an_device/Twist
@@ -144,13 +151,13 @@ sensor_msgs / Imu / Orientation / X					# Packet 20, Fields 15, 16, 17, Converte
 sensor_msgs / Imu / Orientation / Y					# Packet 20, Fields 15, 16, 17, Converted from radians to quaternions
 sensor_msgs / Imu / Orientation / Z					# Packet 20, Fields 15, 16, 17, Converted from radians to quaternions
 sensor_msgs / Imu / Orientation / W					# Packet 20, Fields 15, 16, 17, Converted from radians to quaternions
-sensor_msgs / Imu / Orientation_Covariance			# Packet 27, Fields 2, 3, 4, Anpp Packet 27 Field 1 is for the W axis which is not requested
+sensor_msgs / Imu / Orientation_Covariance		# Packet 27, Fields 2, 3, 4, Anpp Packet 27 Field 1 is for the W axis which is not requested
 sensor_msgs / Imu / Angular_Velocity / X			# Packet 20, Field 18, Radians per second, same as geometry_msgs / Twist / Angular / X
 sensor_msgs / Imu / Angular_Velocity / Y			# Packet 20, Field 19, Radians per second, same as geometry_msgs / Twist / Angular / Y
 sensor_msgs / Imu / Angular_Velocity / Z			# Packet 20, Field 20, Radians per second, same as geometry_msgs / Twist / Angular / Z
-sensor_msgs / Imu / Linear_Acceleration / X			# Packet 20, Field 11, Metres per second per second
-sensor_msgs / Imu / Linear_Acceleration / Y			# Packet 20, Field 12, Metres per second per second
-sensor_msgs / Imu / Linear_Acceleration / Z			# Packet 20, Field 13, Metres per second per second
+sensor_msgs / Imu / Linear_Acceleration / X		# Packet 20, Field 11, Metres per second per second
+sensor_msgs / Imu / Linear_Acceleration / Y		# Packet 20, Field 12, Metres per second per second
+sensor_msgs / Imu / Linear_Acceleration / Z		# Packet 20, Field 13, Metres per second per second
 ```
 
 ## Published Messages: an_device/SystemStatus

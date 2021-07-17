@@ -71,6 +71,9 @@ sudo apt-get install -y openssh-client openssh-server
 ```
 
 ### XRDP 远程GUI
+
+[`Install-xrdp-3.0.sh`](scripts/Install-xrdp-3.0.sh) 位置在 `tsinghua-Unitree-ROS/scripts`
+
 ``` bash
 chmod u+x Install-xrdp-3.0.sh
 ./Install-xrdp-3.0.sh
@@ -212,6 +215,6 @@ git clone https://github.com/unitreerobotics/a1_ros.git
 catkin_make
 ```
 ----
-
+使用 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd> 重启电脑
 
 

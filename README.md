@@ -1,7 +1,8 @@
 # tsinghua-Unitree-ROS
 
 ## 简介
-**Unitree A1 机器狗**       
+[**Unitree A1 机器狗**](https://www.unitree.com/cn/products/a1)  
+
 ROS + SLAM
 
 硬件：  
@@ -19,15 +20,14 @@ ROS + SLAM
 ## 学习资料:
 **[机器人操作系统（ROS）浅析](doc/机器人操作系统（ROS）浅析.pdf)**
 
-
 ## 文档说明
 
 **分两条线路进行**
 
 - [ROS工作空间](ROS_ws)
-    - 激光雷达
-    - 9轴IMU
-    - 双目摄像头
+    - 激光雷达: [Velodyne](data/Velodyne_16.md) / [Lslidar](data/lslidar_c16.md)
+    - 9轴IMU: [Spatial](data/Spatial.md)
+    - 双目摄像头: intel D435i
 
 - [南科大patroldog_ws的研究](patroldog_ws) (已放弃)
 
@@ -54,10 +54,36 @@ ROS + SLAM
 
 
 ----
-## 硬件架构图
-![IMG](pictures/HW.png)
-## 软件架构图
-![IMG](pictures/SW.png)
+## Picture:
+
+<center><img src="pictures/HW.png" width="90%"/>
+
+硬件架构图
+</center>
+
+<center><img src="pictures/SW.png" width="90%"/>
+
+软件架构图
+</center>
+
+----
+
+## 硬件相关:
+### intel D435i 双目摄像头相关(由于玄学问题，需要降级到v2.45.0版本):  
+Github: [librealsense](https://github.com/IntelRealSense/librealsense/releases/tag/v2.45.0)      
+ROS: [realsense-ros](https://github.com/IntelRealSense/realsense-ros)
+
+### Velodyne 16线激光雷达:     
+Github:  [velodyne](https://github.com/ros-drivers/velodyne.git)        
+ROS wiki: [Getting Started with the Velodyne VLP16](http://wiki.ros.org/velodyne/Tutorials/Getting%20Started%20with%20the%20Velodyne%20VLP16)
+
+### 镭神激光雷达 C16:    
+Github:  [lslidar_c16](https://github.com/tianb03/lslidar_c16)      
+博客: [镭神激光雷达官方驱动安装适配](https://www.jianshu.com/p/d8efdf333e98)
+
+### 九轴IMU - Spatial:     
+Official website: [Spatial](https://www.advancednavigation.com/products/spatial)        
+ROS wiki: [advanced_navigation_driver](http://wiki.ros.org/advanced_navigation_driver)   
 
 ----
 ## 引用：
@@ -69,25 +95,6 @@ A1 ROS相关：
 https://github.com/unitreerobotics/unitree_ros      
 https://github.com/unitreerobotics/unitree_legged_sdk
 
-SLAM相关：  
-https://github.com/TixiaoShan/LIO-SAM       
-https://github.com/borglab/gtsam/releases   
-
-intel D435i 双目摄像头相关(由于玄学问题，需要降级到v2.45.0版本):        
-https://github.com/IntelRealSense/librealsense/releases/tag/v2.45.0     
-https://github.com/IntelRealSense/realsense-ros
-
-Velodyne 16线激光雷达:      
-https://github.com/ros-drivers/velodyne.git    
-http://wiki.ros.org/velodyne/Tutorials/Getting%20Started%20with%20the%20Velodyne%20VLP16    
-
-镭神激光雷达 C16:       
-https://github.com/tianb03/lslidar_c16      
-https://www.jianshu.com/p/d8efdf333e98
-
-九轴IMU - Spatial:      
-https://www.advancednavigation.com/products/spatial     
-http://wiki.ros.org/advanced_navigation_driver
 
 C++ 键位函数：      
 https://www.iteye.com/blog/bingtears-663149
@@ -99,5 +106,5 @@ Google research:
 https://xbpeng.github.io/projects/Robotic_Imitation/index.html      
 https://ai.googleblog.com/2020/04/exploring-nature-inspired-robot-agility.html
 
+
 ----
-使用 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd> 重启电脑
