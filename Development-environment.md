@@ -127,6 +127,7 @@ rosdep update
 sudo apt-get install -y python-rosinstall python-rosinstall-generator python-wstool build-essential
 
 sudo apt-get install -y ros-melodic-ros-tutorials
+
 ```
 
 ----
@@ -203,28 +204,38 @@ export UNITREE_SDK_VERSION=3_2
 export UNITREE_LEGGED_SDK_PATH=~/unitree_legged_sdk
 # amd64, arm32, arm64 根据你平台设备选择
 export UNITREE_PLATFORM="amd64"
+# 可选
+source ~/ROS_ws/devel/setup.bash
 ```
 
-## librealsense:       
-Github tar.gz: [librealsense](https://github.com/IntelRealSense/librealsense/releases/tag/v2.45.0)  
+## librealsense:
+Download tar.gz            
+Github [librealsense](https://github.com/IntelRealSense/librealsense/releases/tag/v2.45.0)  
 
 ``` bash
 cd librealsense
-sudo apt update
-sudo apt upgrade
-sudo apt-get install git libssl-dev libusb-1.0-0-dev pkg-config libgtk-3-dev
-sudo apt-get install libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev
+sudo apt update && sudo apt -y upgrade
+sudo apt-get install -y git libssl-dev libusb-1.0-0-dev pkg-config libgtk-3-dev
+sudo apt-get install -y libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev
 sudo cp config/99-realsense-libusb.rules /etc/udev/rules.d/
 sudo udevadm control --reload-rules && udevadm trigger
-mkdir build
-cd build
+mkdir build && cd build
 cmake ../ -DCMAKE_BUILD_TYPE=Release -DBUILD_EXAMPLES=true
 sudo make uninstall
 make clean
-make
+make ##不能多核编译，会报错(应该是内存不足原因)
 sudo make install
+
+## test
+realsense-viewer 
 ```
 
+ROS_ws 需要安装的依懒
+
+``` bash
+sudo apt-get install ros-melodic-ddynamic-reconfigure       
+sudo apt-get install libpcap-dev
+```
 ----
 unitree ROS ： `unitree_ros`  编译 (可选)       
 

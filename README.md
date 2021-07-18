@@ -3,14 +3,14 @@
 ## 简介
 [**Unitree A1 机器狗**](https://www.unitree.com/cn/products/a1)  
 
-ROS + SLAM
+[ROS melodic](http://wiki.ros.org/melodic) + [SLAM](https://github.com/MistyMoonR/tsinghua-SLAM)
 
 硬件：  
 * Upboard : Z8350处理器 4G内存 64G 硬盘   
-* 上位机 : Jetson Xaiver NX / NUC8 i7-8650U
+* 上位机 : [Jetson Xaiver NX](https://developer.nvidia.com/embedded/jetson-xavier-nx) / NUC8 i7-8650U
 * 激光雷达 : [Velodyne-16](data/Velodyne_16.md) / [镭神 C16](data/lslidar_c16.md)
 * IMU: [Advanced Navigation Spatial + Tallysman GPS](data/Spatial.md)
-* 摄像头: intel D435i
+* 摄像头: [intel D435i](data/intel-D435i.md)
 
 系统环境： 
 - Ubuntu18.04 LTS
@@ -27,7 +27,7 @@ ROS + SLAM
 - [ROS工作空间](ROS_ws)
     - 激光雷达: [Velodyne](data/Velodyne_16.md) / [Lslidar](data/lslidar_c16.md)
     - 9轴IMU: [Spatial](data/Spatial.md)
-    - 双目摄像头: intel D435i
+    - 双目摄像头: [intel D435i](data/intel-D435i.md)
 
 - [南科大patroldog_ws的研究](patroldog_ws) (已放弃)
 
@@ -38,6 +38,7 @@ ROS + SLAM
 - [unitree ros 开发笔记](Notes.md)     
 - [unitree API接口协议](data/API.md)     
 - [键位函数](data/keyboard.md)     
+- [intel D435i摄像头](data/intel-D435i.md)
 - [Velodyne-16线激光雷达](data/Velodyne_16.md)    
 - [镭神激光雷达](data/lslidar_c16.md)
 - [Spatial 九轴IMU](data/Spatial.md)
