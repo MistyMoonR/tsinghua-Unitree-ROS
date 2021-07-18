@@ -6,18 +6,23 @@
 - Unitree_Ros
 
 目录： 
-* unitree_legged_sdk 篇
-* unitree_ros 篇
-    * Gazebo 动力学仿真
-    * Rviz 可视化
-    * LCM - UDP 数据通信
-* LIO-SAM SLAM 建模
+<!-- - [tsinghua-Unitree-ROS](#tsinghua-unitree-ros) -->
+  - [名词解释：](#名词解释)
+  - [unitree legged sdk 篇](#unitree-legged-sdk-篇)
+    - [控制](#控制)
+  - [unitree ros 篇](#unitree-ros-篇)
+    - [Gazebo 动力学仿真](#gazebo-动力学仿真)
+  - [Rviz 可视化](#rviz-可视化)
+  - [LCM - UDP 数据通信](#lcm---udp-数据通信)
+  - [LIO-SAM SLAM建模](#lio-sam-slam建模)
+  - [引用](#引用)
+
 
 问题：
 - [x]  API里没找到机器狗IMU传感器返回信息，SLO-SAM需要。 已经解决：在unitree_legged_sdk的通讯库里
 
 
-名词解释：    
+## 名词解释：    
 X：机器前   
 Y：机器左   
 Z：机器上   
@@ -38,8 +43,11 @@ e.g. FR_thigh：右前腿大腿关节
 
 ----
 
-# unitree_legged_sdk 篇
-## 控制 ： `unitree_legged_sdk`
+## unitree legged sdk 篇
+
+`unitree_legged_sdk`
+
+### 控制
 
 详细API参见 [API](/API.md)    
 
@@ -56,17 +64,16 @@ e.g. FR_thigh：右前腿大腿关节
 
 ----
 
-# unitree_ros 篇
+## unitree ros 篇
 
 Tips:   
 查看ROS Graph：`rqt_graph`     
 
-## **Gazebo 动力学仿真**  
+### Gazebo 动力学仿真  
 
 BUG一堆，还没文档解释变量干啥用...
 
 Gazebo没高层运动控制，坑。。。
-
 
 /unitree_ros/unitree_gaebo/launch/normal.launch 头部可以更改default="a1"
 
@@ -86,10 +93,9 @@ Gazebo本质上是调用a1_description的urdf文件
 
 unitree_controller文件夹里面的CmakeLists.txt
 
-
 ----
 
-## **Rviz 可视化** 
+## Rviz 可视化 
 
 ``` bash
 # 运行launch 需要连接机器人才行
@@ -98,7 +104,7 @@ roslaunch a1_description a1_rviz.launch
 
 ----
 
-## **LCM - UDP 数据通信** 
+## LCM - UDP 数据通信 
 
 机器狗用于 LCM Server 传输消息, LCM Channel实现
 
@@ -110,10 +116,9 @@ UDP Multicast Setup : https://lcm-proj.github.io/multicast_setup.html
 
 ----
 
-# LIO-SAM SLAM建模
+## LIO-SAM SLAM建模
 LIO-SAM
 需要一个IMU传感器，高精度。
-
 
 ----
 实物机器狗
@@ -121,10 +126,9 @@ LIO-SAM
 参数设置：
 patroldog_ws/src/navigation/param/teb_local_planner_params.yaml
 
-
-
 ----
 
+## 引用
 SLAM相关：      
 https://github.com/TixiaoShan/LIO-SAM   
 https://github.com/borglab/gtsam/releases

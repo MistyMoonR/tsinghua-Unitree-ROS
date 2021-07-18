@@ -6,11 +6,26 @@
 - Unitree_Ros
 ----
 目录：
-- 换清华源(可选)
-- Git SSH XRDP安装(建议)
-- ROS melodic 安装
-- LIO-SAM + unitree_ros 依赖安装
-- unitree_legged_sdk 安装
+  - [切换清华源(建议)](#切换清华源建议)
+  - [tools 安装](#tools-安装)
+    - [更新软件源](#更新软件源)
+    - [Git 安装](#git-安装)
+    - [ifconfig 安装](#ifconfig-安装)
+    - [SSH server 安装 + 开启](#ssh-server-安装--开启)
+  - [App 安装(建议)](#app-安装建议)
+    - [vscode 安装](#vscode-安装)
+    - [XRDP 远程GUI](#xrdp-远程gui)
+  - [ROS melodic 安装](#ros-melodic-安装)
+    - [ROS melodic install](#ros-melodic-install)
+    - [ROS 依懒](#ros-依懒)
+  - [SLAM + Unitree 依赖安装](#slam--unitree-依赖安装)
+    - [GTSAM 安装](#gtsam-安装)
+    - [LIO-SAM本体安装(可选项)](#lio-sam本体安装可选项)
+    - [LCM 安装](#lcm-安装)
+  - [unitree_legged_sdk 安装](#unitree_legged_sdk安装)
+  - [环境变量配置](#环境变量配置)
+  - [librealsense 安装](#librealsense-安装)
+  - [ROS_ws 依懒](#ros_ws-依懒)
 ----
 待解决问题： 
 - [x]  LIO-SAM和unitree_ros的catkin_ws文件名冲突问题
@@ -18,7 +33,7 @@
 - [x]  需要完善整体框架
 ----
 
-切换清华源(建议)        
+## 切换清华源(建议)        
 来源： https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/
 
 ``` bash
@@ -38,7 +53,10 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted
 # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse
 ```
 
-更新软件源
+----
+## tools 安装
+
+### 更新软件源
 ``` bash
 sudo apt-get update
 sudo apt -y update
@@ -46,7 +64,6 @@ sudo apt-get upgrade
 sudo apt -y upgrade
 ```
 
-----
 ### Git 安装
 ``` bash
 sudo apt install -y git
@@ -56,12 +73,6 @@ sudo apt install -y git
 ``` bash
 sudo apt install -y net-tools
 ```
-
-### vscode 安装
-下载deb包: https://code.visualstudio.com/ 
-``` bash
-sudo dpkg -i code[tab]
-``` 
 
 ### SSH server 安装 + 开启
 状态查看
@@ -80,9 +91,13 @@ sudo apt-get  autoremove  openssh-client openssh-server
 sudo apt-get install -y openssh-client openssh-server
 /etc/init.d/ssh restart #重启ssh ，测试成功
 ```
+## App 安装(建议)
 
-
-
+### vscode 安装
+下载deb包: https://code.visualstudio.com/ 
+``` bash
+sudo dpkg -i code[tab]
+``` 
 ### XRDP 远程GUI
 
 [`Install-xrdp-3.0.sh`](scripts/Install-xrdp-3.0.sh) 位置在 `tsinghua-Unitree-ROS/scripts`
@@ -95,7 +110,7 @@ chmod u+x Install-xrdp-3.0.sh
 ----
 ## ROS melodic 安装
 
-ROS melodic install
+### ROS melodic install
 
 来源： http://wiki.ros.org/melodic/Installation/Ubuntu      
 
@@ -121,26 +136,25 @@ sudo rosdep init
 rosdep update
 
 ```
+### ROS 依懒
 
 完成安装 下面依懒 + tutorials 方便测试是否装成功(可选)
 ``` bash
 sudo apt-get install -y python-rosinstall python-rosinstall-generator python-wstool build-essential
 
-sudo apt-get install -y ros-melodic-ros-tutorials
 
+sudo apt-get install -y ros-melodic-navigation ros-melodic-robot-localization ros-melodic-robot-state-publisher
+
+```
+测试(可选)
+```bash
+sudo apt-get install -y ros-melodic-ros-tutorials
 ```
 
 ----
-## LIO-SAM + unitree_ros 依赖安装
-### LIO-SAM 
+## SLAM + Unitree 依赖安装
 
-来源： https://github.com/TixiaoShan/LIO-SAM
-
-ROS Dependency 
-``` bash
-sudo apt-get install -y ros-melodic-navigation ros-melodic-robot-localization ros-melodic-robot-state-publisher
-```
-
+### GTSAM 安装
 GTSAM: Georgia Tech Smoothing and Mapping library   
 来源：https://github.com/borglab/gtsam/releases
 
@@ -157,7 +171,9 @@ cmake -DGTSAM_BUILD_WITH_MARCH_NATIVE=OFF -DGTSAM_USE_SYSTEM_EIGEN=ON ..
 
 sudo make install  #不成功就后面 -j1 (内存过小) 
 ```
-LIO-SAM本体安装(可选项)    
+
+### LIO-SAM本体安装(可选项)   
+
 **LIO-SAM 需要特别注意是catkin_ws和 unitree_ros的catkin_ws 可能会重叠，后续待解决**
 ``` bash
 cd ~/catkin_ws/src  
@@ -166,9 +182,7 @@ cd ..
 catkin_make
 ```
 
-### unitree_ros dependencies
-
-`unitree_ros` 安装前先安装 `Gazebo`(ROS自带)，`untree_legged_sdk`
+### LCM 安装
 
 ROS `unitree_legged_sdk` 前先编译LCM
 LCM-UDP： 数据通信相关
@@ -181,7 +195,11 @@ cmake ..
 make
 sudo make install
 ```
-` unitree_legged_sdk`  编译
+
+## unitree_legged_sdk安装
+
+来源: https://github.com/unitreerobotics/unitree_legged_sdk
+
 ``` bash
 cd
 git clone https://github.com/unitreerobotics/unitree_legged_sdk.git
@@ -190,6 +208,7 @@ cmake ..
 make
 ```
 
+## 环境变量配置
 配置环境变量:  ~/.bashrc
 ``` yml
 source /opt/ros/melodic/setup.bash
@@ -208,7 +227,7 @@ export UNITREE_PLATFORM="amd64"
 source ~/ROS_ws/devel/setup.bash
 ```
 
-## librealsense:
+## librealsense 安装
 Download tar.gz            
 Github [librealsense](https://github.com/IntelRealSense/librealsense/releases/tag/v2.45.0)  
 
@@ -230,13 +249,15 @@ sudo make install
 realsense-viewer 
 ```
 
-ROS_ws 需要安装的依懒
+## ROS_ws 依懒
 
+严格来说是问题依懒
 ``` bash
 sudo apt-get install ros-melodic-ddynamic-reconfigure       
 sudo apt-get install libpcap-dev
 ```
 ----
+
 unitree ROS ： `unitree_ros`  编译 (可选)       
 
 文档链接: 

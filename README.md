@@ -1,35 +1,57 @@
 # tsinghua-Unitree-ROS
 
+目录:       
+
+  - [简介](#简介)
+    - [硬件](#硬件)
+    - [系统环境](#系统环境)
+  - [学习资料](#学习资料)
+  - [文档说明](#文档说明)
+    - [ROS工作空间](#ros工作空间)
+    - [南科大patroldog_ws的研究 (已放弃)](#南科大patroldog_ws的研究-已放弃)
+  - [文档链接](#文档链接)
+  - [项目进度](#项目进度)
+  - [Picture](#picture)
+    - [硬件架构图](#硬件架构图)
+    - [软件架构图](#软件架构图)
+  - [硬件相关](#硬件相关)
+    - [intel D435i 双目摄像头相关(由于玄学问题，需要降级到v2.45.0版本):](#intel-d435i-双目摄像头相关由于玄学问题需要降级到v2450版本)
+    - [Velodyne 16线激光雷达:](#velodyne-16线激光雷达)
+    - [镭神激光雷达 C16:](#镭神激光雷达-c16)
+    - [九轴IMU - Spatial:](#九轴imu---spatial)
+  - [引用](#引用)
+
 ## 简介
 [**Unitree A1 机器狗**](https://www.unitree.com/cn/products/a1)  
 
 [ROS melodic](http://wiki.ros.org/melodic) + [SLAM](https://github.com/MistyMoonR/tsinghua-SLAM)
 
-硬件：  
+### 硬件：  
 * Upboard : Z8350处理器 4G内存 64G 硬盘   
 * 上位机 : [Jetson Xaiver NX](https://developer.nvidia.com/embedded/jetson-xavier-nx) / NUC8 i7-8650U
 * 激光雷达 : [Velodyne-16](data/Velodyne_16.md) / [镭神 C16](data/lslidar_c16.md)
 * IMU: [Advanced Navigation Spatial + Tallysman GPS](data/Spatial.md)
 * 摄像头: [intel D435i](data/intel-D435i.md)
 
-系统环境： 
+### 系统环境： 
 - Ubuntu18.04 LTS
 - ROS melodic 1.14.11
 
 ----
 ## 学习资料:
+
 **[机器人操作系统（ROS）浅析](doc/机器人操作系统（ROS）浅析.pdf)**
 
 ## 文档说明
 
 **分两条线路进行**
+### [ROS工作空间](ROS_ws)
 
-- [ROS工作空间](ROS_ws)
-    - 激光雷达: [Velodyne](data/Velodyne_16.md) / [Lslidar](data/lslidar_c16.md)
-    - 9轴IMU: [Spatial](data/Spatial.md)
-    - 双目摄像头: [intel D435i](data/intel-D435i.md)
+- 激光雷达: [Velodyne](data/Velodyne_16.md) / [Lslidar](data/lslidar_c16.md)
+- 9轴IMU: [Spatial](data/Spatial.md)
+- 双目摄像头: [intel D435i](data/intel-D435i.md)
 
-- [南科大patroldog_ws的研究](patroldog_ws) (已放弃)
+### [南科大patroldog_ws的研究](patroldog_ws) (已放弃)
 
 ## 文档链接
 
@@ -57,15 +79,11 @@
 ----
 ## Picture:
 
-<center><img src="pictures/HW.png" width="90%"/>
+### 硬件架构图
+<center><img src="pictures/HW.png" width="90%"/></center>
 
-硬件架构图
-</center>
-
-<center><img src="pictures/SW.png" width="90%"/>
-
-软件架构图
-</center>
+### 软件架构图
+<center><img src="pictures/SW.png" width="90%"/></center>
 
 ----
 
