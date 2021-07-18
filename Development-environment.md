@@ -22,7 +22,7 @@
 来源： https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/
 
 ``` bash
-sudo gedit /etc/apt/source.list
+sudo gedit /etc/apt/sources.list
 ```
 把以下内容都复制粘贴进去
 
@@ -52,6 +52,17 @@ sudo apt -y upgrade
 sudo apt install -y git
 ```
 
+### ifconfig 安装
+``` bash
+sudo apt install -y net-tools
+```
+
+### vscode 安装
+下载deb包: https://code.visualstudio.com/ 
+``` bash
+sudo dpkg -i code[tab]
+``` 
+
 ### SSH server 安装 + 开启
 状态查看
 ``` bash
@@ -69,6 +80,8 @@ sudo apt-get  autoremove  openssh-client openssh-server
 sudo apt-get install -y openssh-client openssh-server
 /etc/init.d/ssh restart #重启ssh ，测试成功
 ```
+
+
 
 ### XRDP 远程GUI
 
@@ -89,7 +102,7 @@ ROS melodic install
 ``` bash
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 
-sudo apt install curl # if you haven't already installed curl
+sudo apt install -y curl # if you haven't already installed curl
 
 curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
 
@@ -101,9 +114,7 @@ echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
 
 source ~/.bashrc
 
-sudo apt install python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
-
-sudo apt install python-rosdep
+sudo apt install -y python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
 
 sudo rosdep init
 
@@ -126,9 +137,7 @@ sudo apt-get install -y ros-melodic-ros-tutorials
 
 ROS Dependency 
 ``` bash
-sudo apt-get install -y ros-melodic-navigation
-sudo apt-get install -y ros-melodic-robot-localization
-sudo apt-get install -y ros-melodic-robot-state-publisher
+sudo apt-get install -y ros-melodic-navigation ros-melodic-robot-localization ros-melodic-robot-state-publisher
 ```
 
 GTSAM: Georgia Tech Smoothing and Mapping library   
@@ -145,7 +154,7 @@ mkdir build && cd build
 
 cmake -DGTSAM_BUILD_WITH_MARCH_NATIVE=OFF -DGTSAM_USE_SYSTEM_EIGEN=ON ..
 
-sudo make install -j8  #不成功就 -j1
+sudo make install  #不成功就后面 -j1 (内存过小) 
 ```
 LIO-SAM本体安装(可选项)    
 **LIO-SAM 需要特别注意是catkin_ws和 unitree_ros的catkin_ws 可能会重叠，后续待解决**
@@ -164,23 +173,20 @@ ROS `unitree_legged_sdk` 前先编译LCM
 LCM-UDP： 数据通信相关
 
 ``` bash
+cd
 git clone https://github.com/lcm-proj/lcm.git
-cd lcm
-mkdir build
-cd build
+cd lcm && mkdir build && cd build
 cmake ..
 make
 sudo make install
 ```
 ` unitree_legged_sdk`  编译
 ``` bash
+cd
 git clone https://github.com/unitreerobotics/unitree_legged_sdk.git
-cd unitree_legged_sdk
-mkdir build
-cd build
-cmake ../
+cd unitree_legged_sdk && mkdir build && cd build
+cmake ..
 make
-sudo make install
 ```
 
 配置环境变量:  ~/.bashrc
@@ -189,7 +195,6 @@ source /opt/ros/melodic/setup.bash
 # melodic 默认装gazebo-9
 source /usr/share/gazebo-9/setup.sh 
 # 有需要把catkin_ws替换你的工作空间
-source ~/catkin_ws/devel/setup.bash
 export ROS_PACKAGE_PATH=~/catkin_ws:${ROS_PACKAGE_PATH}
 export GAZEBO_PLUGIN_PATH=~/catkin_ws/devel/lib:${GAZEBO_PLUGIN_PATH}
 export LD_LIBRARY_PATH=~/catkin_ws/devel/lib:${LD_LIBRARY_PATH}
@@ -198,7 +203,26 @@ export UNITREE_SDK_VERSION=3_2
 export UNITREE_LEGGED_SDK_PATH=~/unitree_legged_sdk
 # amd64, arm32, arm64 根据你平台设备选择
 export UNITREE_PLATFORM="amd64"
+```
 
+## librealsense:       
+Github tar.gz: [librealsense](https://github.com/IntelRealSense/librealsense/releases/tag/v2.45.0)  
+
+``` bash
+cd librealsense
+sudo apt update
+sudo apt upgrade
+sudo apt-get install git libssl-dev libusb-1.0-0-dev pkg-config libgtk-3-dev
+sudo apt-get install libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev
+sudo cp config/99-realsense-libusb.rules /etc/udev/rules.d/
+sudo udevadm control --reload-rules && udevadm trigger
+mkdir build
+cd build
+cmake ../ -DCMAKE_BUILD_TYPE=Release -DBUILD_EXAMPLES=true
+sudo make uninstall
+make clean
+make
+sudo make install
 ```
 
 ----
@@ -214,6 +238,7 @@ catkin_init_workspace
 git clone https://github.com/unitreerobotics/a1_ros.git
 catkin_make
 ```
+
 ----
 使用 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd> 重启电脑
 
