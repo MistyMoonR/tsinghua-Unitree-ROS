@@ -5,11 +5,17 @@
 #---------------------------------------------------#
 
 echo
-/bin/echo -e "\e[1;36m !-----------------------------------------------------------------------!\e[0m"
-/bin/echo -e "\e[1;36m ! 将会执行换清华源 + 软件更新 + ROS melodic 和依懒的安装                      !\e[0m"
-/bin/echo -e "\e[1;36m ! 此过程会花费较长时间，取决于你电脑的网速和性能，不如泡杯Java喝                  !\e[0m"
-/bin/echo -e "\e[1;36m ! 3秒钟后将会执行                                                         !\e[0m"
-/bin/echo -e "\e[1;36m !-----------------------------------------------------------------------!\e[0m"
+/bin/echo -e "\e[1;36m !------------------------------------------------------------!\e[0m"
+/bin/echo -e "\e[1;36m ! 更换换清华源 + 软件更新 + ROS melodic 和依懒 的安装              !\e[0m"
+/bin/echo -e "\e[1;36m ! 此过程会花费较长时间，取决于你电脑的网速和性能，不如泡杯Java喝       !\e[0m"
+/bin/echo -e "\e[1;36m ! 3秒钟后将会执行: 本脚本只针对Ubuntu18.04 和 ROS melodic         !\e[0m"
+/bin/echo -e "\e[1;36m ! 如果发现系统版本对不上现在 ctrl + c 还来得及哦                   !\e[0m"
+/bin/echo -e "\e[1;36m !------------------------------------------------------------!\e[0m"
+/bin/echo -e "\e[1;36m ! THU source + software update +  ROS melodic and Elaine     !\e[0m"
+/bin/echo -e "\e[1;36m ! Will take long time & Depends on network and performance   !\e[0m"
+/bin/echo -e "\e[1;36m ! It will be executed in 3s:     Ubuntu18.04 + ROS melodic   !\e[0m"
+/bin/echo -e "\e[1;36m ! If you find that the system version is not right: Ctrl + C !\e[0m"
+/bin/echo -e "\e[1;36m !------------------------------------------------------------!\e[0m"
 echo
 
 sleep 3s
@@ -35,14 +41,8 @@ sudo echo "# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-securit
 
 sudo mv ~/Desktop/sources.list /etc/apt/
 
-echo
-/bin/echo -e "\e[1;36m !-----------------------------------------------------------------------!\e[0m"
-/bin/echo -e "\e[1;36m ! 换源 Completed                                                         !\e[0m"
-/bin/echo -e "\e[1;36m !-----------------------------------------------------------------------!\e[0m"
-echo
-
 #---------------------------------------------------#
-#  Detecting if Parameters passed to script .... 
+#  update 使配置生效 
 #---------------------------------------------------#
 
 sudo apt update
@@ -53,11 +53,9 @@ sudo apt-get update
 
 sudo apt-get -y upgrade
 
-echo
-/bin/echo -e "\e[1;36m !-----------------------------------------------------------------------!\e[0m"
-/bin/echo -e "\e[1;36m ! apt undate & upgrade Completed                                                !\e[0m"
-/bin/echo -e "\e[1;36m !-----------------------------------------------------------------------!\e[0m"
-echo
+#---------------------------------------------------#
+#  ROS melodic 安装 
+#---------------------------------------------------#
 
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 
@@ -79,13 +77,10 @@ sudo rosdep init
 
 rosdep update
 
-echo
-/bin/echo -e "\e[1;36m !-----------------------------------------------------------------------!\e[0m"
-/bin/echo -e "\e[1;36m ! ROS melodic Installation Completed                                                !\e[0m"
-/bin/echo -e "\e[1;36m !-----------------------------------------------------------------------!\e[0m"
-echo
+#---------------------------------------------------#
+#  ROS 依懒安装, 可以自行定制化 
+#---------------------------------------------------#
 
-# 下面依懒可选，自行删除
 sudo apt-get install -y python-rosinstall python-rosinstall-generator python-wstool build-essential
 
 sudo apt-get install -y ros-melodic-navigation ros-melodic-robot-localization ros-melodic-robot-state-publisher
@@ -94,10 +89,13 @@ sudo apt-get install -y ros-melodic-ddynamic-reconfigure
 
 sudo apt-get install -y libpcap-dev
 
+###
+
 echo
-/bin/echo -e "\e[1;36m !-----------------------------------------------------------------------!\e[0m"
-/bin/echo -e "\e[1;36m ! All Installation Completed                                                !\e[0m"
-/bin/echo -e "\e[1;36m !-----------------------------------------------------------------------!\e[0m"
+/bin/echo -e "\e[1;36m !---------------------------------------------!\e[0m"
+/bin/echo -e "\e[1;36m ! All Installation Completed                  !\e[0m"
+/bin/echo -e "\e[1;36m ! 请关闭此窗口，在别的窗口运行 roscore 测试        !\e[0m"
+/bin/echo -e "\e[1;36m !---------------------------------------------!\e[0m"
 echo
 
 

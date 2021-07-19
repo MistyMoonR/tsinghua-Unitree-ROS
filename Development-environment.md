@@ -6,25 +6,19 @@
 - Unitree_Ros
 ----
 目录：
+- [**脚本**](#脚本)
+- [安装过程(这是一个痛苦的过程)](#安装过程这是一个痛苦的过程)
   - [切换清华源(建议)](#切换清华源建议)
-  - [Tools 安装](#tools-安装)
-    - [更新软件源](#更新软件源)
-    - [Git 安装](#git-安装)
-    - [ifconfig 安装](#ifconfig-安装)
-    - [修改静态IP地址](#修改静态ip地址可选)
-    - [SSH server 安装 + 开启](#ssh-server-安装--开启)
+  - [tools 安装](#tools-安装)
   - [App 安装(建议)](#app-安装建议)
-    - [vscode 安装](#vscode-安装)
-    - [分屏终端 安装](#分屏终端)
-    - [XRDP 远程GUI](#xrdp-远程gui)
-  - [**ROS melodic 安装**](#ros-melodic-安装)
+  - [ROS melodic 安装](#ros-melodic-安装)
     - [ROS melodic install](#ros-melodic-install)
     - [ROS 依懒](#ros-依懒)
   - [SLAM + Unitree 依赖安装](#slam--unitree-依赖安装)
     - [GTSAM 安装](#gtsam-安装)
     - [LIO-SAM本体安装(可选项)](#lio-sam本体安装可选项)
     - [LCM 安装](#lcm-安装)
-  - [unitree_legged_sdk 安装](#unitree_legged_sdk安装)
+  - [unitree_legged_sdk安装](#unitree_legged_sdk安装)
   - [环境变量配置](#环境变量配置)
   - [librealsense 安装](#librealsense-安装)
 ----
@@ -34,8 +28,37 @@
 - [x]  需要完善整体框架
 ----
 
-## 切换清华源(建议)        
+# **脚本**
+
+**安装过程较为繁琐，写了脚本来完成大部分安装工作**
+
+[ROS-melodic.sh](scripts/ROS-melodic.sh) 位置在 `tsinghua-Unitree-ROS/scripts`    
+包括: <kbd>换清华源</kbd> + <kbd>软件更新</kbd> + <kbd>ROS melodic</kbd> 本体和依懒的安装
+
+[Tool+App-Install.sh](scripts/Tool+App-Install.sh) 位置在 `tsinghua-Unitree-ROS/scripts`    
+包括: <kbd>git</kbd> + <kbd>net-tools</kbd> + <kbd>openssh-server</kbd> + <kbd>terminator</kbd> + <kbd>neofetch</kbd> + <kbd>htop</kbd> 和 <kbd>VScode</kbd>
+
+[Unitree-A1-environment.sh](scripts/Unitree-A1-environment.sh) 位置在 `tsinghua-Unitree-ROS/scripts`    
+包括: <kbd>GTSAM</kbd> + <kbd>LCM</kbd> + <kbd>unitree_legged_sdk</kbd> + <kbd>librealsense</kbd> 
+
+
+用法: 以 `ROS-melodic.sh` 为列
+``` bash
+chmod u+x ROS-melodic.sh
+./ROS-melodic.sh
+```
+
+----
+
+# 安装过程(这是一个痛苦的过程)
+
+## 切换清华源(建议)       
+
+
 来源： https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/
+
+或者可以自行替换 中科大源: http://mirrors.ustc.edu.cn/help/ubuntu.html    
+PS: USTC 里面的 `sed` 用法太骚了
 
 ``` bash
 sudo gedit /etc/apt/sources.list
@@ -58,11 +81,12 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted
 ## tools 安装
 
 ### 更新软件源
+
 ``` bash
-sudo apt-get update
-sudo apt -y update
-sudo apt-get upgrade
+sudo apt update
 sudo apt -y upgrade
+sudo apt-get update
+sudo apt-get -y upgrade
 ```
 
 ### Git 安装
@@ -136,20 +160,11 @@ chmod u+x Install-xrdp-3.0.sh
 ```
 
 ----
-## ROS melodic 安装
+## ROS melodic 安装 
 
 安装方式有两种: 
 1. 用脚本安装(建议)
 2. 像个机器人一样一个一个输入下面bash命令
-
-脚本:
-
-[`ROS-melodic.sh`](scripts/ROS-melodic.sh) 位置在 `tsinghua-Unitree-ROS/scripts`
-
-``` bash
-chmod u+x ROS-melodic.sh
-./ROS-melodic.sh
-```
 
 ### ROS melodic install
 
@@ -313,6 +328,4 @@ catkin_make
 ```
 
 ----
-使用 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd> 重启电脑
-
 
