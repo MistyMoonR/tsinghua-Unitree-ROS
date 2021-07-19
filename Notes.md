@@ -7,7 +7,7 @@
 
 目录： 
 <!-- - [tsinghua-Unitree-ROS](#tsinghua-unitree-ros) -->
-  - [名词解释：](#名词解释)
+  - [Table](#table)
   - [unitree legged sdk 篇](#unitree-legged-sdk-篇)
     - [控制](#控制)
   - [unitree ros 篇](#unitree-ros-篇)
@@ -22,24 +22,25 @@
 - [x]  API里没找到机器狗IMU传感器返回信息，SLO-SAM需要。 已经解决：在unitree_legged_sdk的通讯库里
 
 
-## 名词解释：    
-X：机器前   
-Y：机器左   
-Z：机器上   
-
-Leg 0：FR, 右前腿   
-Leg 1：FL, 左前腿   
-Leg 2：RR, 右后腿       
-Leg 3：RL, 左后腿   
-Joint 0：Hip, 机身关节  
-Joint 1：Thigh, 大腿关节    
-Joint 2：Calf, 小腿关节     
-e.g. FR_thigh：右前腿大腿关节   
-
-关节限位：
-机身关节：-46°~46°  
-大腿关节：-60°~240°     
-小腿关节：-154.5°~-52.5°        
+## Table   
+      
+| **名词解释**                  |                 |
+| :---------------------------- | :-------------: |
+| X                             |     机器前      |
+| Y                             |     机器左      |
+| Z                             |     机器上      |
+| Leg 0                         |   FR, 右前腿    |
+| Leg 1                         |   FL, 左前腿    |
+| Leg 2                         |   RR, 右后腿    |
+| Leg 3                         |   RL, 左后腿    |
+| Joint 0                       |  Hip, 机身关节  |
+| Joint 1                       | Thigh, 大腿关节 |
+| Joint 2                       | Calf, 小腿关节  |
+| e.g. FR_thigh：右前腿大腿关节 |
+| **关节限位**                  |                 |
+| 机身关节                      |    -46°~46°     |
+| 大腿关节                      |    -60°~240°    |
+| 小腿关节                      | -154.5°~-52.5°  |
 
 ----
 
@@ -69,15 +70,15 @@ e.g. FR_thigh：右前腿大腿关节
 Tips:   
 查看ROS Graph：`rqt_graph`     
 
-### Gazebo 动力学仿真  
+### Gazebo 动力学仿真(已放弃)  
 
-BUG一堆，还没文档解释变量干啥用...
-
-Gazebo没高层运动控制，坑。。。
+- [ ] BUG一堆，还没文档解释变量干啥用...
+- [ ] Gazebo没高层运动控制，坑。。。
 
 /unitree_ros/unitree_gaebo/launch/normal.launch 头部可以更改default="a1"
 
 运行部分： 
+
 ``` bash
 roslaunch unitree_gazebo normal.launch 
 
@@ -85,11 +86,9 @@ roslaunch unitree_gazebo normal.launch
 rosrun unitree_controller unitree_servo
 rosrun unitree_controller unitree_move_kinetic  #camkelist里面没改，也不影响
 ``` 
-
 Gazebo本质上是调用a1_description的urdf文件      
 
 [教程：在 Gazebo 中使用 URDF](http://gazebosim.org/tutorials/?tut=ros_urdf)
-
 
 unitree_controller文件夹里面的CmakeLists.txt
 

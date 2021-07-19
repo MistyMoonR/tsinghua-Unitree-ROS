@@ -7,15 +7,17 @@
 ----
 目录：
   - [切换清华源(建议)](#切换清华源建议)
-  - [tools 安装](#tools-安装)
+  - [Tools 安装](#tools-安装)
     - [更新软件源](#更新软件源)
     - [Git 安装](#git-安装)
     - [ifconfig 安装](#ifconfig-安装)
+    - [修改静态IP地址](#修改静态ip地址可选)
     - [SSH server 安装 + 开启](#ssh-server-安装--开启)
   - [App 安装(建议)](#app-安装建议)
     - [vscode 安装](#vscode-安装)
+    - [分屏终端 安装](#分屏终端)
     - [XRDP 远程GUI](#xrdp-远程gui)
-  - [ROS melodic 安装](#ros-melodic-安装)
+  - [**ROS melodic 安装**](#ros-melodic-安装)
     - [ROS melodic install](#ros-melodic-install)
     - [ROS 依懒](#ros-依懒)
   - [SLAM + Unitree 依赖安装](#slam--unitree-依赖安装)
@@ -25,7 +27,6 @@
   - [unitree_legged_sdk 安装](#unitree_legged_sdk安装)
   - [环境变量配置](#环境变量配置)
   - [librealsense 安装](#librealsense-安装)
-  - [ROS_ws 依懒](#ros_ws-依懒)
 ----
 待解决问题： 
 - [x]  LIO-SAM和unitree_ros的catkin_ws文件名冲突问题
@@ -74,6 +75,29 @@ sudo apt install -y git
 sudo apt install -y net-tools
 ```
 
+### 修改静态IP地址(可选)  
+来源: [Ubuntu 18.04 修改静态ip](https://blog.csdn.net/weixin_44058333/article/details/104068376) 
+``` bash
+sudo gedit /etc/netplan/01-network-manager-all.yaml
+``` 
+模板:
+``` yaml
+network:
+  version: 2
+  #renderer: NetworkManager
+  ethernets:
+    enp97s0f0:
+        addresses: [192.168.1.102/24] #镭神激光雷达指定host
+        gateway4: 192.168.1.1 #路由器IP
+        dhcp4: no
+        dhcp6: no
+        optional: true
+``` 
+配置生效
+``` bash
+sudo netplan apply
+``` 
+
 ### SSH server 安装 + 开启
 状态查看
 ``` bash
@@ -87,7 +111,7 @@ sudo apt-get install -y openssh-server
 
 如果不行就重新装
 ``` bash
-sudo apt-get  autoremove  openssh-client openssh-server 
+sudo apt-get autoremove  openssh-client openssh-server 
 sudo apt-get install -y openssh-client openssh-server
 /etc/init.d/ssh restart #重启ssh ，测试成功
 ```
@@ -97,6 +121,10 @@ sudo apt-get install -y openssh-client openssh-server
 下载deb包: https://code.visualstudio.com/ 
 ``` bash
 sudo dpkg -i code[tab]
+``` 
+### 分屏终端
+``` bash
+sudo apt-get install -y terminator
 ``` 
 ### XRDP 远程GUI
 
@@ -109,6 +137,19 @@ chmod u+x Install-xrdp-3.0.sh
 
 ----
 ## ROS melodic 安装
+
+安装方式有两种: 
+1. 用脚本安装(建议)
+2. 像个机器人一样一个一个输入下面bash命令
+
+脚本:
+
+[`ROS-melodic.sh`](scripts/ROS-melodic.sh) 位置在 `tsinghua-Unitree-ROS/scripts`
+
+``` bash
+chmod u+x ROS-melodic.sh
+./ROS-melodic.sh
+```
 
 ### ROS melodic install
 
@@ -139,13 +180,18 @@ rosdep update
 ### ROS 依懒
 
 完成安装 下面依懒 + tutorials 方便测试是否装成功(可选)
+
 ``` bash
 sudo apt-get install -y python-rosinstall python-rosinstall-generator python-wstool build-essential
 
-
 sudo apt-get install -y ros-melodic-navigation ros-melodic-robot-localization ros-melodic-robot-state-publisher
 
+# 虚拟机测试发现缺下面依赖
+sudo apt-get install -y ros-melodic-ddynamic-reconfigure       
+
+sudo apt-get install -y libpcap-dev
 ```
+
 测试(可选)
 ```bash
 sudo apt-get install -y ros-melodic-ros-tutorials
@@ -244,18 +290,13 @@ sudo make uninstall
 make clean
 make ##不能多核编译，会报错(应该是内存不足原因)
 sudo make install
+``` 
 
-## test
+测试
+``` bash
 realsense-viewer 
 ```
 
-## ROS_ws 依懒
-
-严格来说是问题依懒
-``` bash
-sudo apt-get install ros-melodic-ddynamic-reconfigure       
-sudo apt-get install libpcap-dev
-```
 ----
 
 unitree ROS ： `unitree_ros`  编译 (可选)       
