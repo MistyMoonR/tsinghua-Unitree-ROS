@@ -38,7 +38,12 @@ rosnode list
 rostopic echo /velodyne_points
 
 rosrun rviz rviz -f velodyne
+
+#或者 输入rviz然后把坐标选velodyne
 ```
+
+![IMG](/pictures/Velodyne-16.png)
+
 
 RVIZ
 1. In the "displays" panel, click "Add", then select "Point Cloud2", then press "OK".
