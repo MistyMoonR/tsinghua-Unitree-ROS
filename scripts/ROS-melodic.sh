@@ -57,7 +57,7 @@ sudo apt-get -y upgrade
 #  ROS melodic 安装 
 #---------------------------------------------------#
 
-sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+sudo sh -c 'echo "deb http://mirrors.tuna.tsinghua.edu.cn/ros/ubuntu/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 
 sudo apt install -y curl # if you haven't already installed curl
 

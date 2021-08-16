@@ -6,11 +6,23 @@
 - Unitree_Ros
 ----
 目录：
+- [Development environment](#development-environment)
+  - [- Unitree_Ros](#--unitree_ros)
+  - [- librealsense 安装](#--librealsense-安装)
+  - [- [x]  需要完善整体框架](#--x--需要完善整体框架)
 - [**脚本**](#脚本)
 - [安装过程(这是一个痛苦的过程)](#安装过程这是一个痛苦的过程)
   - [切换清华源(建议)](#切换清华源建议)
   - [tools 安装](#tools-安装)
+    - [更新软件源](#更新软件源)
+    - [Git 安装](#git-安装)
+    - [ifconfig 安装](#ifconfig-安装)
+    - [修改静态IP地址(可选)](#修改静态ip地址可选)
+    - [SSH server 安装 + 开启](#ssh-server-安装--开启)
   - [App 安装(建议)](#app-安装建议)
+    - [vscode 安装](#vscode-安装)
+    - [分屏终端](#分屏终端)
+    - [XRDP 远程GUI](#xrdp-远程gui)
   - [ROS melodic 安装](#ros-melodic-安装)
     - [ROS melodic install](#ros-melodic-install)
     - [ROS 依懒](#ros-依懒)
@@ -47,6 +59,8 @@
 chmod u+x ROS-melodic.sh
 ./ROS-melodic.sh
 ```
+
+更换源: http://wiki.ros.org/ROS/Installation/UbuntuMirrors
 
 ----
 
@@ -110,7 +124,7 @@ network:
   version: 2
   #renderer: NetworkManager
   ethernets:
-    enp97s0f0:
+    enp97s0f0: #ifcong自行 选择网卡
         addresses: [192.168.1.102/24] #镭神激光雷达指定host
         gateway4: 192.168.1.1 #路由器IP
         dhcp4: no
